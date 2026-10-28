@@ -1,4 +1,5 @@
 import express from "express";
+import cookieParser from "cookie-parser";
 import connectDB from "./lib/connectDB.js";
 import dotenv from "dotenv";
 import userRoute from "./routes/user.route.js";
@@ -14,6 +15,8 @@ const app = express();
 app.use(express.json({ limit: "1mb" }));
 // parse url-encoded request body with limit of 1mb
 app.use(express.urlencoded({ extended: true, limit: "1mb" }));
+// parse the `jwt` httpOnly cookie into req.cookies — required by protectMiddleware
+app.use(cookieParser());
 
 //routes
 

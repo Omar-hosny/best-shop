@@ -23,6 +23,14 @@ const errorMiddleware = (error, req, res, next) => {
     // Malformed ObjectId / type
     statusCode = 400;
     message = `Invalid value for ${error.path}`;
+  } else if (error.name === "TokenExpiredError") {
+    // jsonwebtoken: token past its `exp`
+    statusCode = 401;
+    message = "Your session has expired. Please log in again";
+  } else if (error.name === "JsonWebTokenError") {
+    // jsonwebtoken: bad signature / malformed token
+    statusCode = 401;
+    message = "Invalid token. Please log in again";
   } else if (error instanceof AppError) {
     statusCode = error.statusCode;
   }
