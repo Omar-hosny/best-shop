@@ -3,6 +3,9 @@ import cookieParser from "cookie-parser";
 import connectDB from "./lib/connectDB.js";
 import dotenv from "dotenv";
 import userRoute from "./routes/user.route.js";
+import productRoute from "./routes/product.route.js";
+import categoryRoute from "./routes/category.route.js";
+
 import errorMiddleware from "./middleware/errorMiddleware.js";
 // Load environment variables
 dotenv.config();
@@ -21,6 +24,8 @@ app.use(cookieParser());
 //routes
 
 app.use("/api/v1/auth", userRoute);
+app.use("/api/v1/product", productRoute);
+app.use("/api/v1/category", categoryRoute);
 
 // Error handling middleware
 app.use(errorMiddleware);

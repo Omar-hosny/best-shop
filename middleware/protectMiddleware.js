@@ -22,14 +22,12 @@ const protectMiddleware = async (req, res, next) => {
 
   // Verify token
   const decodedToken = jwt.verify(token, secret);
-  console.log(decodedToken);
 
   // Check if user still exists
   const user = await User.findById(decodedToken.id);
   if (!user) {
     throw new AppError("User not found", 404);
   }
-  console.log(user);
 
   // Attach user to request
   req.user = user;
