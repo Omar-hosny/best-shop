@@ -53,14 +53,31 @@ export const getProduct = async (req, res) => {
 };
 
 export const updateProduct = async (req, res) => {
-  const product = await Product.findByIdAndUpdate(
-    req.params.id,
-    matchedData(req, { locations: ["body"] }),
-    { new: true, runValidators: true },
-  ).populate("category", "name");
+  // `matchedData` only contains fields that were sent AND have a validation
+  // rule, so injected `_id` / `slug` / `__v` can never reach the update.
+  const updates = matchedData(req, { locations: ["body"] });
+
+  // Nothing valid was sent — refuse instead of returning an unchanged product.
+  if (Object.keys(updates).length === 0) {
+    throw new AppError("No fields to update", 400);
+  }
+
+  // Same dangling-reference guard as create: `isMongoId()` only proves the
+  // format, not that the category exists.
+  if (updates.category && !(await Category.exists({ _id: updates.category }))) {
+    throw new AppError("Category does not exist", 400);
+  }
+
+  const product = await Product.findByIdAndUpdate(req.params.id, updates, {
+    // Mongoose 9: `new: true` is deprecated in favour of `returnDocument`.
+    returnDocument: "after", // return the document AFTER the update, not the old one
+    runValidators: true, // schema validators (min, minlength, integer) don't run otherwise
+  }).populate("category", "name");
+
   if (!product) {
     throw new AppError("Product not found", 404);
   }
+
   res.status(200).json({ success: true, data: product });
 };
 
@@ -69,7 +86,9 @@ export const deleteProduct = async (req, res) => {
   if (!product) {
     throw new AppError("Product not found", 404);
   }
-  res.status(200).json({ success: true, data: product });
+  res
+    .status(200)
+    .json({ success: true, message: "Product deleted successfully" });
 };
 
 export const getProductsByCategory = async (req, res) => {

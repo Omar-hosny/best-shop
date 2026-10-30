@@ -26,7 +26,7 @@ export const createCategory = async (req, res) => {
 };
 
 export const getCategories = async (req, res) => {
-  const categories = await Category.find();
+  const categories = await Category.find({});
   res.status(200).json({ success: true, data: categories });
 };
 
@@ -39,11 +39,18 @@ export const getCategory = async (req, res) => {
 };
 
 export const updateCategory = async (req, res) => {
-  const category = await Category.findByIdAndUpdate(
-    req.params.id,
-    matchedData(req, { locations: ["body"] }),
-    { new: true, runValidators: true },
-  );
+  // rule, so injected `_id` / `slug` / `__v` can never reach the update.
+  const updates = matchedData(req, { locations: ["body"] });
+
+  // Nothing valid was sent — refuse instead of returning an unchanged product.
+  if (Object.keys(updates).length === 0) {
+    throw new AppError("No fields to update", 400);
+  }
+
+  const category = await Category.findByIdAndUpdate(req.params.id, updates, {
+    new: true,
+    runValidators: true,
+  });
   if (!category) {
     throw new AppError("Category not found", 404);
   }
@@ -55,5 +62,7 @@ export const deleteCategory = async (req, res) => {
   if (!category) {
     throw new AppError("Category not found", 404);
   }
-  res.status(200).json({ success: true, data: category });
+  res
+    .status(200)
+    .json({ success: true, message: "Category deleted successfully" });
 };

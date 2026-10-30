@@ -24,8 +24,8 @@ app.use(cookieParser());
 //routes
 
 app.use("/api/v1/auth", userRoute);
-app.use("/api/v1/product", productRoute);
-app.use("/api/v1/category", categoryRoute);
+app.use("/api/v1/products", productRoute);
+app.use("/api/v1/categories", categoryRoute);
 
 // Error handling middleware
 app.use(errorMiddleware);
