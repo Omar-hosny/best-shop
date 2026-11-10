@@ -6,6 +6,7 @@ import userRoute from "./routes/user.route.js";
 import productRoute from "./routes/product.route.js";
 import categoryRoute from "./routes/category.route.js";
 import cartRoute from "./routes/cart.route.js";
+import orderRoute from "./routes/order.route.js";
 
 import errorMiddleware from "./middleware/errorMiddleware.js";
 // Load environment variables
@@ -28,6 +29,7 @@ app.use("/api/v1/auth", userRoute);
 app.use("/api/v1/products", productRoute);
 app.use("/api/v1/categories", categoryRoute);
 app.use("/api/v1/cart", cartRoute);
+app.use("/api/v1/orders", orderRoute);
 
 // Error handling middleware
 app.use(errorMiddleware);
