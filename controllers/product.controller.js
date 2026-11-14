@@ -36,10 +36,88 @@ export const createProduct = async (req, res) => {
   res.status(201).json({ success: true, data: product });
 };
 
-export const getProducts = async (req, res) => {
-  const products = await Product.find().populate("category", "name");
-  res.status(200).json({ success: true, data: products });
+const DEFAULT_PAGE_SIZE = 20;
+
+// Must match SORT_KEYS in validators/product.validator.js. The client sends a
+// friendly name; only this table turns it into a Mongo sort, so a raw string
+// can never reach `.sort()`.
+const SORTS = {
+  newest: { createdAt: -1 },
+  oldest: { createdAt: 1 },
+  price_asc: { price: 1 },
+  price_desc: { price: -1 },
+  name_asc: { name: 1 },
+  name_desc: { name: -1 },
 };
+
+// `q` is interpolated into a RegExp, so metacharacters must be escaped —
+// otherwise a search for "(" throws and the request dies as a 500.
+const escapeRegex = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+// Turns validated query filters into a Mongo filter. Nothing here reads
+// `req` directly, so the same builder serves both listing endpoints.
+const buildProductFilter = ({ q, category, minPrice, maxPrice, inStock }) => {
+  const filter = {};
+
+  if (q) {
+    const pattern = { $regex: escapeRegex(q), $options: "i" };
+    filter.$or = [{ name: pattern }, { description: pattern }];
+  }
+
+  if (category) filter.category = category;
+
+  if (minPrice !== undefined || maxPrice !== undefined) {
+    filter.price = {};
+    if (minPrice !== undefined) filter.price.$gte = minPrice;
+    if (maxPrice !== undefined) filter.price.$lte = maxPrice;
+  }
+
+  // `inStock=false` means "out of stock only", not "no filter". It arrives as a
+  // string: turning it into a boolean in the validator would make `matchedData`
+  // drop the field (falsy + `optional({ values: "falsy" })`).
+  if (inStock === "true") filter.quantity = { $gt: 0 };
+  else if (inStock === "false") filter.quantity = { $lte: 0 };
+
+  return filter;
+};
+
+// Shared implementation for `GET /` and `GET /category/:id`. `baseFilter` is
+// the part the route fixes itself (the category from the path).
+const listProducts = async (req, res, baseFilter = {}) => {
+  const {
+    page = 1,
+    limit = DEFAULT_PAGE_SIZE,
+    sort = "newest",
+    ...filters
+  } = matchedData(req, { locations: ["query"] });
+
+  const filter = { ...baseFilter, ...buildProductFilter(filters) };
+
+  const [products, total] = await Promise.all([
+    Product.find(filter)
+      .populate("category", "name")
+      // `_id` is a tiebreaker: without it, documents sharing a createdAt or a
+      // price can swap order between pages, so a product is skipped or shown
+      // twice while paging.
+      .sort({ ...SORTS[sort], _id: -1 })
+      .skip((page - 1) * limit)
+      .limit(limit),
+    Product.countDocuments(filter),
+  ]);
+
+  res.status(200).json({
+    success: true,
+    data: products,
+    pagination: {
+      page,
+      limit,
+      total,
+      totalPages: Math.ceil(total / limit),
+    },
+  });
+};
+
+export const getProducts = (req, res) => listProducts(req, res);
 
 export const getProduct = async (req, res) => {
   const product = await Product.findById(req.params.id).populate(
@@ -91,17 +169,5 @@ export const deleteProduct = async (req, res) => {
     .json({ success: true, message: "Product deleted successfully" });
 };
 
-export const getProductsByCategory = async (req, res) => {
-  const products = await Product.find({ category: req.params.id }).populate(
-    "category",
-    "name",
-  );
-  res.status(200).json({ success: true, data: products });
-};
-
-// export const searchProducts = async (req, res) => {
-//   const products = await Product.find({
-//     name: { $regex: req.params.query, $options: "i" },
-//   }).populate("category", "name");
-//   res.status(200).json({ success: true, data: products });
-// };
+export const getProductsByCategory = (req, res) =>
+  listProducts(req, res, { category: req.params.id });

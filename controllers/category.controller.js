@@ -1,5 +1,6 @@
 import { matchedData } from "express-validator";
 import Category from "../models/Category.model.js";
+import Product from "../models/Product.model.js";
 import AppError from "../middleware/AppError.js";
 
 export const createCategory = async (req, res) => {
@@ -58,6 +59,14 @@ export const updateCategory = async (req, res) => {
 };
 
 export const deleteCategory = async (req, res) => {
+  // Products reference the category by id. Deleting it would leave dangling
+  // refs that no listing can ever surface again (`/products/category/:id` would
+  // just return []), so refuse while products still point at it.
+  const hasProducts = await Product.exists({ category: req.params.id });
+  if (hasProducts) {
+    throw new AppError("Category has products", 400);
+  }
+
   const category = await Category.findByIdAndDelete(req.params.id);
   if (!category) {
     throw new AppError("Category not found", 404);

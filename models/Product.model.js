@@ -46,6 +46,12 @@ const productSchema = new mongoose.Schema(
   },
 );
 
+// Listing endpoints filter by category (usually with a newest-first sort) or
+// sort by price, so index those paths. The controller appends `_id` to every
+// sort as a tiebreaker so paging stays stable.
+productSchema.index({ category: 1, createdAt: -1 });
+productSchema.index({ price: 1 });
+
 const Product = mongoose.model("Product", productSchema);
 
 export default Product;
