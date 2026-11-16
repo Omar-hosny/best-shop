@@ -8,14 +8,20 @@ import {
 import { registerRules, loginRules } from "../validators/auth.validator.js";
 import { validate } from "../middleware/validate.js";
 import protectMiddleware from "../middleware/protectMiddleware.js";
+import {
+  loginLimiter,
+  registerLimiter,
+} from "../middleware/rateLimiters.js";
 
 const router = express.Router();
 
+// Limiter runs before validation so brute-force attempts never reach the
+// bcrypt comparison.
 // register user
-router.post("/register", registerRules, validate, registerUser);
+router.post("/register", registerLimiter, registerRules, validate, registerUser);
 
 // login user
-router.post("/login", loginRules, validate, loginUser);
+router.post("/login", loginLimiter, loginRules, validate, loginUser);
 
 // logout user
 router.post("/logout", logoutUser);

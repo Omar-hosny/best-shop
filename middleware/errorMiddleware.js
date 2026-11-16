@@ -36,7 +36,12 @@ const errorMiddleware = (error, req, res, next) => {
   }
 
   if (statusCode >= 500) {
+    // Keep the real cause in the logs; never send internal messages (Mongo
+    // driver errors, stack fragments) to the client in production.
     console.error(error);
+    if (process.env.NODE_ENV === "production") {
+      message = "Something went wrong";
+    }
   }
 
   res.status(statusCode).json({

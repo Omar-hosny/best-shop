@@ -16,6 +16,7 @@ import {
 import { validate } from "../middleware/validate.js";
 import protectMiddleware from "../middleware/protectMiddleware.js";
 import restrictTo from "../middleware/restrictTo.js";
+import { adminWriteLimiter } from "../middleware/rateLimiters.js";
 
 const router = express.Router();
 
@@ -26,6 +27,7 @@ router.post(
   "/",
   protectMiddleware,
   restrictTo("admin"),
+  adminWriteLimiter,
   productRules,
   validate,
   createProduct,
@@ -42,6 +44,7 @@ router.get("/", listProductsRules, validate, getProducts);
 const updateProductChain = [
   protectMiddleware,
   restrictTo("admin"),
+  adminWriteLimiter,
   updateProductRules,
   validate,
   updateProduct,
@@ -65,6 +68,12 @@ router.get(
 // get a single product
 // Public route
 router.get("/:id", getProduct);
-router.delete("/:id", protectMiddleware, restrictTo("admin"), deleteProduct);
+router.delete(
+  "/:id",
+  protectMiddleware,
+  restrictTo("admin"),
+  adminWriteLimiter,
+  deleteProduct,
+);
 
 export default router;

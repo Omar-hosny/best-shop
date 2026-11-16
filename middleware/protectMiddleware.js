@@ -20,8 +20,9 @@ const protectMiddleware = async (req, res, next) => {
     throw new AppError("JWT_SECRET not found", 500);
   }
 
-  // Verify token
-  const decodedToken = jwt.verify(token, secret);
+  // Verify token. Pinning the algorithm rejects a token that claims a different
+  // one (e.g. "none" or an asymmetric algorithm keyed with our HMAC secret).
+  const decodedToken = jwt.verify(token, secret, { algorithms: ["HS256"] });
 
   // Check if user still exists
   const user = await User.findById(decodedToken.id);

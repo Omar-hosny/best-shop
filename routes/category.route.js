@@ -1,6 +1,7 @@
 import { Router } from "express";
 import protectMiddleware from "../middleware/protectMiddleware.js";
 import restrictTo from "../middleware/restrictTo.js";
+import { adminWriteLimiter } from "../middleware/rateLimiters.js";
 
 import {
   categoryRules,
@@ -22,6 +23,7 @@ router.post(
   "/",
   protectMiddleware,
   restrictTo("admin"),
+  adminWriteLimiter,
   categoryRules,
   validate,
   createCategory,
@@ -35,6 +37,7 @@ router.put(
   "/:id",
   protectMiddleware,
   restrictTo("admin"),
+  adminWriteLimiter,
   updateCategoryRules,
   validate,
   updateCategory,
@@ -44,6 +47,7 @@ router.delete(
   "/:id",
   protectMiddleware,
   restrictTo("admin"),
+  adminWriteLimiter,
   deleteCategoryRules,
   validate,
   deleteCategory,
