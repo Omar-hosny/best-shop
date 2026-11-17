@@ -17,7 +17,7 @@ dotenv.config();
 // Fail fast on a missing secret / URI instead of a 500 on the first request.
 validateEnv();
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 const app = express();
 
 // Express only sees the proxy's address in req.ip unless it knows how many

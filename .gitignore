@@ -1,4 +1,12 @@
+# dependencies
 node_modules
+
+# secrets
 .env
-docs/
-AGENTS.md
+
+# IDE / OS
+.idea/
+.DS_Store
+
+# leftover
+/app.js
