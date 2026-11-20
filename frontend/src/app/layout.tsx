@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono, Newsreader, Outfit } from "next/font/google";
+import {
+  Archivo_Black,
+  IBM_Plex_Mono,
+  Newsreader,
+  Outfit,
+} from "next/font/google";
 import Script from "next/script";
 
 import { SiteFooter } from "@/components/site-footer";
@@ -10,6 +15,12 @@ import "./globals.css";
 const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
+});
+
+const archivoBlack = Archivo_Black({
+  variable: "--font-archivo-black",
+  subsets: ["latin"],
+  weight: "400",
 });
 
 const newsreader = Newsreader({
@@ -40,11 +51,11 @@ const themeBootstrap = `(function(){
 
 export const metadata: Metadata = {
   title: {
-    default: "Best Shop — Considered goods for everyday life",
+    default: "Best Shop — Live goods, plain prices",
     template: "%s | Best Shop",
   },
   description:
-    "A considered collection of everyday goods. Browse by category, find your next favourite, and check out with cash on delivery.",
+    "Read the live Best Shop catalog with real prices and stock, then pay cash on delivery.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -52,7 +63,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${outfit.variable} ${newsreader.variable} ${plexMono.variable} h-full antialiased`}
+      className={`${outfit.variable} ${archivoBlack.variable} ${newsreader.variable} ${plexMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
         <Script
@@ -60,6 +71,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{ __html: themeBootstrap }}
         />
+        <a href="#main" className="skip-link">
+          Skip to content
+        </a>
         <SiteHeader />
         <div className="flex-1">{children}</div>
         <SiteFooter />

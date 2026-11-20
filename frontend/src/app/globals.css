@@ -24,7 +24,7 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  /* Editorial storefront tokens */
+  /* Waybill surface tokens */
   --color-surface: var(--surface);
   --color-surface-accent: var(--surface-accent);
   --color-surface-foreground: var(--surface-foreground);
@@ -50,9 +50,10 @@
   --font-sans: var(--font-outfit);
   --font-mono: var(--font-plex-mono);
   --font-heading: var(--font-newsreader);
+  --font-display: var(--font-archivo-black);
 
-  /* 4px product media / 8px cards / 999px pills */
-  --radius-media: 0.25rem;
+  /* Waybill surface: soft rounded panels, pill actions */
+  --radius-media: 0.125rem;
   --radius-pill: 999px;
   --radius-sm: calc(var(--radius) * 0.5);
   --radius-md: calc(var(--radius) * 0.75);
@@ -65,134 +66,121 @@
   --shadow-pill: var(--pill-shadow);
   --shadow-float: var(--float-shadow);
 
-  --tracking-display: -0.02em;
-  --tracking-label: 0.05em;
+  --tracking-display: -0.04em;
+  --tracking-label: 0.08em;
 
-  --text-display: 3rem;
-  --text-display--line-height: 1.2;
-  --text-display--letter-spacing: -0.02em;
-  --text-section: 1.75rem;
-  --text-section--line-height: 1.3;
-  --text-product: 0.8125rem;
-  --text-product--line-height: 1.4;
-  --text-eyebrow: 0.6875rem;
-  --text-eyebrow--line-height: 1.2;
-  --text-eyebrow--letter-spacing: 0.05em;
-
-  --animate-rise: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-@keyframes rise {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
+  --text-display: 4rem;
+  --text-display--line-height: 0.92;
+  --text-display--letter-spacing: -0.04em;
+  --text-section: 2.25rem;
+  --text-section--line-height: 1.05;
+  --text-product: 0.875rem;
+  --text-product--line-height: 1.45;
+  --text-eyebrow: 0.75rem;
+  --text-eyebrow--line-height: 1.3;
+  --text-eyebrow--letter-spacing: 0.08em;
 }
 
 :root {
   color-scheme: light;
 
-  --background: #ffffff;
-  --foreground: #1a1a1a;
+  --background: #f3ead8;
+  --foreground: #1b2a52;
 
-  --card: #ffffff;
-  --card-foreground: #1a1a1a;
-  --popover: #ffffff;
-  --popover-foreground: #1a1a1a;
+  --card: #fffcf4;
+  --card-foreground: #1b2a52;
+  --popover: #fffcf4;
+  --popover-foreground: #1b2a52;
 
-  --primary: #1a1a1a;
+  --primary: #c2410c;
   --primary-foreground: #ffffff;
-  --secondary: #f6f6f6;
-  --secondary-foreground: #1a1a1a;
-  --muted: #f6f6f6;
-  --muted-foreground: #666666;
-  --accent: #efefef;
-  --accent-foreground: #1a1a1a;
-  --destructive: #d92d20;
-  --border: #e5e5e5;
-  --input: #e5e5e5;
-  --ring: #1a1a1a;
+  --secondary: #e5d9c2;
+  --secondary-foreground: #1b2a52;
+  --muted: #e9dfcb;
+  --muted-foreground: #4a4360;
+  --accent: #e5d9c2;
+  --accent-foreground: #1b2a52;
+  --destructive: #a82718;
+  --border: #b9aa90;
+  --input: #b9aa90;
+  --ring: #c2410c;
 
-  --surface: #f6f6f6;
-  --surface-accent: #efefef;
-  --surface-foreground: #1a1a1a;
-  --subtle: #999999;
-  --brand: #f4511e;
+  --surface: #e9dfcb;
+  --surface-accent: #ded2ba;
+  --surface-foreground: #1b2a52;
+  --subtle: #5e5749;
+  --brand: #c2410c;
   --brand-foreground: #ffffff;
-  --rating: #1a1a1a;
+  --rating: #1b2a52;
 
-  --pill-shadow: 0 4px 12px rgb(0 0 0 / 0.05);
-  --float-shadow: 0 8px 24px rgb(0 0 0 / 0.04);
+  --pill-shadow: 0 2px 10px rgb(27 42 82 / 0.1);
+  --float-shadow: 0 8px 22px rgb(27 42 82 / 0.12);
 
-  --radius: 0.5rem;
+  --radius: 0.125rem;
 
-  --chart-1: #f4511e;
-  --chart-2: #1a1a1a;
-  --chart-3: #666666;
-  --chart-4: #efefef;
-  --chart-5: #e5e5e5;
-  --sidebar: #f6f6f6;
-  --sidebar-foreground: #1a1a1a;
-  --sidebar-primary: #1a1a1a;
+  --chart-1: #c2410c;
+  --chart-2: #1b2a52;
+  --chart-3: #5e5749;
+  --chart-4: #ded2ba;
+  --chart-5: #b9aa90;
+  --sidebar: #e9dfcb;
+  --sidebar-foreground: #1b2a52;
+  --sidebar-primary: #c2410c;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #efefef;
-  --sidebar-accent-foreground: #1a1a1a;
-  --sidebar-border: #e5e5e5;
-  --sidebar-ring: #1a1a1a;
+  --sidebar-accent: #ded2ba;
+  --sidebar-accent-foreground: #1b2a52;
+  --sidebar-border: #b9aa90;
+  --sidebar-ring: #c2410c;
 }
 
 .dark {
   color-scheme: dark;
 
-  --background: #141414;
-  --foreground: #f5f5f3;
+  --background: #101b33;
+  --foreground: #f3ead8;
 
-  --card: #1e1e1e;
-  --card-foreground: #f5f5f3;
-  --popover: #1e1e1e;
-  --popover-foreground: #f5f5f3;
+  --card: #182748;
+  --card-foreground: #f3ead8;
+  --popover: #182748;
+  --popover-foreground: #f3ead8;
 
-  --primary: #f5f5f3;
-  --primary-foreground: #141414;
-  --secondary: #2a2a2a;
-  --secondary-foreground: #f5f5f3;
-  --muted: #2a2a2a;
-  --muted-foreground: #a3a3a3;
-  --accent: #2a2a2a;
-  --accent-foreground: #f5f5f3;
-  --destructive: #ff6b5e;
-  --border: #333333;
-  --input: #333333;
-  --ring: #f5f5f3;
+  --primary: #c2410c;
+  --primary-foreground: #ffffff;
+  --secondary: #1d2e52;
+  --secondary-foreground: #f3ead8;
+  --muted: #1d2e52;
+  --muted-foreground: #c8d0df;
+  --accent: #1d2e52;
+  --accent-foreground: #f3ead8;
+  --destructive: #ff7a68;
+  --border: #40527a;
+  --input: #40527a;
+  --ring: #ff8a5b;
 
-  --surface: #1e1e1e;
-  --surface-accent: #2a2a2a;
-  --surface-foreground: #f5f5f3;
-  --subtle: #737373;
-  --brand: #ff7a4d;
-  --brand-foreground: #141414;
-  --rating: #f5f5f3;
+  --surface: #182748;
+  --surface-accent: #1d2e52;
+  --surface-foreground: #f3ead8;
+  --subtle: #b9c3d6;
+  --brand: #ff8a5b;
+  --brand-foreground: #101b33;
+  --rating: #f3ead8;
 
-  --pill-shadow: 0 4px 12px rgb(0 0 0 / 0.4);
-  --float-shadow: 0 8px 24px rgb(0 0 0 / 0.5);
+  --pill-shadow: 0 2px 12px rgb(0 0 0 / 0.3);
+  --float-shadow: 0 8px 24px rgb(0 0 0 / 0.38);
 
-  --chart-1: #ff7a4d;
-  --chart-2: #f5f5f3;
-  --chart-3: #a3a3a3;
-  --chart-4: #2a2a2a;
-  --chart-5: #333333;
-  --sidebar: #1e1e1e;
-  --sidebar-foreground: #f5f5f3;
-  --sidebar-primary: #f5f5f3;
-  --sidebar-primary-foreground: #141414;
-  --sidebar-accent: #2a2a2a;
-  --sidebar-accent-foreground: #f5f5f3;
-  --sidebar-border: #333333;
-  --sidebar-ring: #f5f5f3;
+  --chart-1: #ff8a5b;
+  --chart-2: #f3ead8;
+  --chart-3: #b9c3d6;
+  --chart-4: #1d2e52;
+  --chart-5: #40527a;
+  --sidebar: #182748;
+  --sidebar-foreground: #f3ead8;
+  --sidebar-primary: #ff8a5b;
+  --sidebar-primary-foreground: #101b33;
+  --sidebar-accent: #1d2e52;
+  --sidebar-accent-foreground: #f3ead8;
+  --sidebar-border: #40527a;
+  --sidebar-ring: #ff8a5b;
 }
 
 @layer base {
@@ -208,17 +196,86 @@
   html {
     @apply font-sans;
   }
-  ::selection {
-    background-color: var(--brand);
-    color: var(--brand-foreground);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+[id] {
+  scroll-margin-top: 7.5rem;
+}
+
+@media (min-width: 640px) {
+  [id] {
+    scroll-margin-top: 5.5rem;
   }
 }
 
-/* Restrained atmosphere — used by the hero and editorial sections. */
-.paper-grain {
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+::selection {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
 }
 
+:focus-visible {
+  outline: 3px solid var(--ring);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 50;
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  padding: 0 1.25rem;
+  border-radius: 999px;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transform: translateY(-200%);
+  transition: transform 160ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+  outline: 3px solid var(--ring);
+  outline-offset: 3px;
+}
+
+.font-mono,
+table {
+  font-variant-numeric: tabular-nums;
+}
+
+* {
+  scrollbar-color: var(--border) var(--background);
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border: 3px solid var(--background);
+  border-radius: 999px;
+}
+
+/* Kept for the existing auth pages; the homepage does not use this ornament. */
 .concentric-rings {
   background-image: repeating-radial-gradient(
     circle at center,
@@ -226,7 +283,20 @@
     transparent 38px,
     var(--border) 39px,
     var(--border) 40px
-  );
+  ); /* impeccable-disable-line repeating-stripes-gradient */
+}
+
+.stamp-press {
+  animation: stamp-press 620ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes stamp-press {
+  from {
+    transform: rotate(-1deg) scale(1.015);
+  }
+  to {
+    transform: rotate(-3deg) scale(1);
+  }
 }
 
 /* Added briefly by the theme toggle so only the switch crossfades. */
@@ -241,12 +311,19 @@ html.theme-transition *::after {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .stamp-press {
+    animation: none !important;
+    transform: rotate(-3deg);
+  }
+  .skip-link {
+    transition: none;
+  }
   html.theme-transition *,
   html.theme-transition *::before,
   html.theme-transition *::after {
     transition: none !important;
-  }
-  .animate-rise {
-    animation: none !important;
   }
 }

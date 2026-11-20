@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 export default function AuthLayout({ children }: { children: ReactNode }) {
   return (
-    <main className="mx-auto grid w-full max-w-[1280px] items-center gap-10 px-6 py-12 sm:px-10 lg:min-h-[calc(100vh-9rem)] lg:grid-cols-[1.05fr_1fr] lg:gap-16 lg:py-16">
+    <main id="main" className="mx-auto grid w-full max-w-[1280px] items-center gap-10 px-6 py-12 sm:px-10 lg:min-h-[calc(100vh-9rem)] lg:grid-cols-[1.05fr_1fr] lg:gap-16 lg:py-16">
       <section className="relative hidden min-h-[540px] overflow-hidden rounded-2xl bg-surface p-12 lg:flex lg:flex-col lg:justify-between">
         <div
           className="concentric-rings pointer-events-none absolute inset-0 opacity-50"
@@ -24,13 +24,13 @@ export default function AuthLayout({ children }: { children: ReactNode }) {
             Good things, thoughtfully chosen.
           </h2>
           <p className="mt-6 max-w-sm text-sm leading-relaxed text-muted-foreground">
-            A quieter kind of storefront. Browse the collection, keep what you
-            love close, and check out whenever you are ready.
+            Read the live catalog, check plain prices and stock, and pay cash
+            when your order arrives.
           </p>
         </div>
 
         <p className="relative text-eyebrow uppercase tracking-label text-subtle">
-          Free shipping over $100
+          $7.99 standard delivery
         </p>
       </section>
 

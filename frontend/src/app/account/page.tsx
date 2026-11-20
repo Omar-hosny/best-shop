@@ -9,7 +9,7 @@ export const metadata: Metadata = { title: "Your account" };
 
 export default function AccountPage() {
   return (
-    <main className="mx-auto w-full max-w-3xl px-6 py-16 sm:px-10">
+    <main id="main" className="mx-auto w-full max-w-3xl px-6 py-16 sm:px-10">
       <Suspense fallback={<p className="text-sm text-muted-foreground">Loading your account…</p>}>
         <AccountContent />
       </Suspense>
@@ -33,7 +33,7 @@ async function AccountContent() {
           Hello, {user.name.split(" ")[0]}
         </h1>
         <p className="text-sm text-muted-foreground">
-          Your details and order activity live here.
+          Your account details live here.
         </p>
       </div>
 

@@ -1,0 +1,247 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-18T21:47:51Z",
+  "title": "Design System: Best Shop",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Burnt Orange Stamp",
+        "canonical": "#c2410c",
+        "tonalRamp": ["#2a0d04", "#521a07", "#7c280a", "#a5360a", "#c2410c", "#d4693f", "#e69c79", "#f6d4c3"]
+      },
+      "primary-foreground": {
+        "role": "neutral",
+        "displayName": "Stamp White",
+        "canonical": "#ffffff",
+        "tonalRamp": ["#1a1a1a", "#3d3d3d", "#616161", "#858585", "#aaaaaa", "#cccccc", "#e6e6e6", "#ffffff"]
+      },
+      "kraft-paper": {
+        "role": "neutral",
+        "displayName": "Kraft Paper",
+        "canonical": "#f3ead8",
+        "tonalRamp": ["#4a4438", "#6d6554", "#918876", "#b5aa94", "#d6c8af", "#e7dcc7", "#f3ead8", "#fffaf0"]
+      },
+      "ink-navy": {
+        "role": "neutral",
+        "displayName": "Ink Navy",
+        "canonical": "#1b2a52",
+        "tonalRamp": ["#070b17", "#0d1429", "#141f3c", "#1b2a52", "#2d406d", "#4c628f", "#7b8eae", "#b9c5d8"]
+      },
+      "paper-card": {
+        "role": "neutral",
+        "displayName": "Paper Card",
+        "canonical": "#fffcf4",
+        "tonalRamp": ["#4a483f", "#6e6b5e", "#938f7d", "#b8b39d", "#ded7c4", "#f0eadb", "#fffcf4", "#ffffff"]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Carbon Surface",
+        "canonical": "#e9dfcb",
+        "tonalRamp": ["#474136", "#6a6151", "#8e826d", "#b2a48c", "#d3c3a9", "#e4d7bd", "#e9dfcb", "#faf3e6"]
+      },
+      "surface-accent": {
+        "role": "neutral",
+        "displayName": "Surface Accent",
+        "canonical": "#ded2ba",
+        "tonalRamp": ["#443e32", "#665d4b", "#897d65", "#ac9e80", "#cdbc9e", "#ded2ba", "#ece1cc", "#faf4e8"]
+      },
+      "muted-ink": {
+        "role": "neutral",
+        "displayName": "Muted Ink",
+        "canonical": "#4a4360",
+        "tonalRamp": ["#15121c", "#28233a", "#3a334d", "#4a4360", "#645c77", "#857d96", "#aca6b7", "#d8d4de"]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Carbon Rule",
+        "canonical": "#b9aa90",
+        "tonalRamp": ["#3b352b", "#59503f", "#786c56", "#97896f", "#b9aa90", "#cdbfa7", "#ded3c1", "#f0e9dd"]
+      },
+      "subtle-ink": {
+        "role": "neutral",
+        "displayName": "Subtle Ink",
+        "canonical": "#5e5749",
+        "tonalRamp": ["#1d1a15", "#343027", "#4a4538", "#5e5749", "#7b7361", "#9a917e", "#bbb3a4", "#ded8cd"]
+      },
+      "dark-ground": {
+        "role": "neutral",
+        "displayName": "Night Ground",
+        "canonical": "#101b33",
+        "tonalRamp": ["#060a14", "#0b1223", "#101b33", "#1a2a49", "#2b3e63", "#435981", "#6d80a3", "#aeb9cd"]
+      },
+      "dark-card": {
+        "role": "neutral",
+        "displayName": "Night Card",
+        "canonical": "#182748",
+        "tonalRamp": ["#080d1a", "#101a31", "#182748", "#25395f", "#385080", "#5771a6", "#879bbf", "#c0cddd"]
+      },
+      "dark-ink": {
+        "role": "neutral",
+        "displayName": "Night Ink",
+        "canonical": "#f3ead8",
+        "tonalRamp": ["#4a4438", "#6d6554", "#918876", "#b5aa94", "#d6c8af", "#e7dcc7", "#f3ead8", "#fffaf0"]
+      },
+      "dark-muted-ink": {
+        "role": "neutral",
+        "displayName": "Night Muted Ink",
+        "canonical": "#c8d0df",
+        "tonalRamp": ["#3b414e", "#596273", "#788294", "#98a2b2", "#b7c0cd", "#c8d0df", "#dce2ec", "#f0f3f8"]
+      },
+      "dark-rule": {
+        "role": "neutral",
+        "displayName": "Night Rule",
+        "canonical": "#40527a",
+        "tonalRamp": ["#131c2d", "#25324b", "#35466a", "#40527a", "#5a6d91", "#7d8eac", "#a6b2c8", "#d0d8e5"]
+      },
+      "dark-accent": {
+        "role": "primary",
+        "displayName": "Night Stamp Tint",
+        "canonical": "#ff8a5b",
+        "tonalRamp": ["#3b160c", "#6b2c18", "#9c4728", "#c7653e", "#e47e54", "#ff8a5b", "#ffb08d", "#ffd9c5"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Waybill Masthead", "purpose": "The Best Shop masthead only; compressed, uppercase, tight-tracked." },
+      "headline": { "displayName": "Section Headline", "purpose": "Goods Manifest and Pay on Delivery section titles." },
+      "title": { "displayName": "Stamp Title", "purpose": "The Live Goods label and the Cash on Delivery stamp." },
+      "body": { "displayName": "Ledger Copy", "purpose": "Proof statements and delivery explanation." },
+      "product": { "displayName": "Product Name", "purpose": "Mono product names and price cells in the goods ledger." },
+      "ledger": { "displayName": "Waybill Copy", "purpose": "Mono proof statements and delivery explanation on the printed form." },
+      "label": { "displayName": "Form Label", "purpose": "Mono labels, card fields, filters, buttons, and footer facts." }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "stamp-press",
+        "value": "transform 620ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The single settle animation for the cash-on-delivery stamp, starting from the already-visible state; disabled under prefers-reduced-motion."
+      },
+      {
+        "name": "theme-crossfade",
+        "value": "background-color 200ms ease, border-color 200ms ease, color 200ms ease, fill 200ms ease",
+        "purpose": "Applied only during the theme toggle transition."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" },
+      { "name": "2xl", "value": "1536px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one filled action on the waybill; reaches a live-goods anchor or a real state change.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#goods\">READ THE FULL GOODS LIST</a>",
+      "css": ".ds-btn-primary { display: inline-flex; min-height: 48px; align-items: center; padding: 12px 24px; background: #c2410c; color: #ffffff; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-radius: 999px; transition: background-color 160ms ease; } .ds-btn-primary:hover { background: #a63609; } .ds-btn-primary:focus-visible { outline: 3px solid #c2410c; outline-offset: 3px; }"
+    },
+    {
+      "name": "Secondary Link",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "A quiet in-page action printed as an underlined mono label.",
+      "html": "<a class=\"ds-link-secondary\" href=\"#delivery\">SEE DELIVERY COSTS</a>",
+      "css": ".ds-link-secondary { display: inline-flex; min-height: 44px; align-items: center; color: #1b2a52; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: underline; text-decoration-color: rgba(27, 42, 82, 0.4); text-underline-offset: 4px; transition: color 160ms ease; } .ds-link-secondary:hover { color: #c2410c; } .ds-link-secondary:focus-visible { outline: 3px solid #c2410c; outline-offset: 3px; }"
+    },
+    {
+      "name": "Filter Chip",
+      "kind": "chip",
+      "refersTo": "filter-chip",
+      "description": "A pill-shaped department filter with a live line count.",
+      "html": "<button class=\"ds-chip\" type=\"button\" aria-pressed=\"false\">ELECTRONICS <span>8</span></button>",
+      "css": ".ds-chip { display: inline-flex; min-height: 44px; align-items: center; gap: 8px; padding: 12px; background: transparent; border: 1px solid #b9aa90; border-radius: 999px; color: #1b2a52; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: border-color 160ms ease; } .ds-chip span { color: #c2410c; } .ds-chip:hover { border-color: #1b2a52; } .ds-chip:focus-visible { outline: 3px solid #c2410c; outline-offset: 3px; }"
+    },
+    {
+      "name": "Filter Chip Active",
+      "kind": "chip",
+      "refersTo": "filter-chip-active",
+      "description": "The inverted state of the department filter.",
+      "html": "<button class=\"ds-chip-active\" type=\"button\" aria-pressed=\"true\">ALL GOODS <span>60</span></button>",
+      "css": ".ds-chip-active { display: inline-flex; min-height: 44px; align-items: center; gap: 8px; padding: 12px; background: #1b2a52; border: 1px solid #1b2a52; border-radius: 999px; color: #f3ead8; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; } .ds-chip-active span { opacity: 0.7; } .ds-chip-active:focus-visible { outline: 3px solid #c2410c; outline-offset: 3px; }"
+    },
+    {
+      "name": "Waybill Panel",
+      "kind": "card",
+      "refersTo": "waybill-panel",
+      "description": "A rounded paper panel carrying live-read status or cost fields.",
+      "html": "<div class=\"ds-waybill-panel\"><dl><div><dt>CATALOG</dt><dd>LIVE</dd></div><div><dt>PAYMENT</dt><dd>ON DELIVERY</dd></div></dl></div>",
+      "css": ".ds-waybill-panel { background: #fffcf4; border: 1px solid #b9aa90; border-radius: 24px; padding: 20px; color: #1b2a52; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; } .ds-waybill-panel dl { margin: 0; } .ds-waybill-panel dl > div { display: flex; justify-content: space-between; gap: 24px; padding-bottom: 8px; border-bottom: 1px dashed #b9aa90; } .ds-waybill-panel dd { margin: 0; font-weight: 700; }"
+    },
+    {
+      "name": "Delivery Stamp",
+      "kind": "custom",
+      "refersTo": "delivery-stamp",
+      "description": "The signature double-rule stamp that states the payment promise; its container is unbordered so the stamp is the only card in that column.",
+      "html": "<div class=\"ds-delivery-stamp\"><span>CASH ON<br>DELIVERY</span></div>",
+      "css": ".ds-delivery-stamp { width: max-content; background: #fffcf4; border: 4px double #c2410c; border-radius: 16px; padding: 16px 20px; color: #c2410c; transform: rotate(-3deg); text-align: center; animation: ds-stamp-press 620ms cubic-bezier(0.16, 1, 0.3, 1) both; } .ds-delivery-stamp span { font-family: 'Archivo Black', 'Arial Black', sans-serif; font-size: 30px; line-height: 0.95; letter-spacing: -0.04em; text-transform: uppercase; } @keyframes ds-stamp-press { from { transform: rotate(-1deg) scale(1.015); } to { transform: rotate(-3deg) scale(1); } } @media (prefers-reduced-motion: reduce) { .ds-delivery-stamp { animation: none; } }"
+    },
+    {
+      "name": "Product Card",
+      "kind": "card",
+      "refersTo": "product-card",
+      "description": "The waybill merchandise card: image, category, live price, live stock, and a dashed carbon-copy split.",
+      "html": "<article class=\"ds-product-card\"><div class=\"ds-product-media\"></div><p class=\"ds-product-category\">GROCERIES</p><h3>ORGANIC ALMOND BUTTER</h3><div class=\"ds-product-fields\"><span class=\"ds-product-price\">$12.50</span><span class=\"ds-product-stock\">18 IN STOCK</span></div></article>",
+      "css": ".ds-product-card { display: flex; height: 100%; flex-direction: column; border: 1px solid #b9aa90; border-radius: 24px; background: #fffcf4; padding: 16px; color: #1b2a52; } .ds-product-media { aspect-ratio: 4 / 3; background: #e9dfcb; border-radius: 16px; overflow: hidden; } .ds-product-category { margin: 12px 0 0; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #4a4360; } .ds-product-card h3 { margin: 4px 0 0; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 14px; font-weight: 600; line-height: 1.45; } .ds-product-fields { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 12px; margin-top: auto; padding-top: 12px; border-top: 1px dashed #b9aa90; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-variant-numeric: tabular-nums; } .ds-product-price { font-size: 14px; font-weight: 700; } .ds-product-stock { color: #c2410c; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }"
+    },
+    {
+      "name": "Waybill Navigation",
+      "kind": "nav",
+      "refersTo": "button-secondary",
+      "description": "On-page header with page anchors, a session-aware Account/Login link, a Cart placeholder link, and a labeled theme control.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Header\"><a href=\"#goods\">GOODS</a><a href=\"#departments\">DEPARTMENTS</a><a href=\"#delivery\">DELIVERY</a><a href=\"/account\">ACCOUNT</a><a href=\"/cart\">CART</a><button type=\"button\" aria-label=\"Toggle color theme\">THEME</button></nav>",
+      "css": ".ds-nav { display: flex; min-height: 64px; align-items: center; justify-content: flex-end; gap: 4px; padding: 8px 24px; border-bottom: 1px solid #b9aa90; background: #f3ead8; } .ds-nav a, .ds-nav button { display: inline-flex; min-height: 44px; align-items: center; padding: 0 12px; background: transparent; border: 0; color: #1b2a52; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: color 160ms ease; } .ds-nav a:hover, .ds-nav button:hover { color: #c2410c; } .ds-nav a:focus-visible, .ds-nav button:focus-visible { outline: 3px solid #c2410c; outline-offset: 3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Delivery Slip",
+    "overview": "The storefront reads as a printed waybill: goods, costs, and payment printed with bureaucratic clarity on warm kraft paper. It replaces the previous editorial field-guide world rather than polishing it. Metaphor never sits in front of merchandise; the live goods cards are the hero, and the cash-on-delivery stamp is the one memorable flourish.\n\nThe system is flat, ruled, and dense enough to be trusted. Fine muted rules form the grid, IBM Plex Mono carries every label and number, and burnt orange appears only where the visitor needs to act or where the payment promise is stamped. Product photography remains API-supplied; the homepage ships no local raster and invents no inventory or social proof.",
+    "keyCharacteristics": [
+      "Kraft ground with carbon-copy separations and softly rounded paper panels.",
+      "One action color, used sparingly on primary buttons, live status, and the COD stamp.",
+      "Tabular mono data for prices, stock, categories, and costs.",
+      "Pill-shaped actions and chips inside a softly rounded paper-panel world.",
+      "Honest loading, empty, and failure states instead of placeholder goods."
+    ],
+    "rules": [
+      {
+        "name": "The One Accent Rule",
+        "body": "Burnt orange is the only accent. If an element is not an action, a live-data signal, or the payment stamp, it does not get the accent.",
+        "section": "colors"
+      },
+      {
+        "name": "The Rule Rule",
+        "body": "Structure is drawn with 1px muted rules, dashed carbon-copy separators, and tonal paper layers. The only heavy line is the double-rule cash-on-delivery stamp. No grain, rings, stripes, or gradient substitutes.",
+        "section": "colors"
+      },
+      {
+        "name": "The Mono Ledger Rule",
+        "body": "On the waybill, explanatory copy, product names, and every value that changes with live data are mono and tabular. Outfit belongs to the rest of the app, not to the printed form.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Form Rule",
+        "body": "Panels sit on the page by tone and a hairline border. No ambient shadows, lifted cards, or glass effects belong on the waybill.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do read prices, stock, categories, and product names from the live API; show the honest failure state when the read fails.",
+      "Do keep primary buttons #c2410c in both themes; use #ff8a5b only as the dark-surface text and stamp tint.",
+      "Do use 1px muted rules, rounded panels, pill actions, and tabular IBM Plex Mono for live values.",
+      "Do keep all visible CTAs on working in-page anchors, built routes, honest placeholders, or real state changes, with targets at least 44px tall.",
+      "Do leave product photography to API-supplied URLs; this surface ships no local raster."
+    ],
+    "donts": [
+      "Don't add testimonials, customer counts, delivery dates, returns promises, benchmark numbers, or sample inventory.",
+      "Don't link to /products or /products/:id while those paths remain unbuilt, and don't present the cart placeholder as a working checkout.",
+      "Don't use grain, concentric rings, repeating stripes, gradients, italic display, numbered section labels, or editorial object language on the waybill.",
+      "Don't use Newsreader display type on this surface; it remains only for the untouched auth screens.",
+      "Don't hide goods behind hover, carousels, or decorative panels; the live goods cards are the hero."
+    ]
+  }
+}

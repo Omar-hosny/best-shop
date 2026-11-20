@@ -1,68 +1,81 @@
-import { ShoppingBag, UserRound } from "lucide-react";
 import Link from "next/link";
 import { Suspense } from "react";
 
 import { ThemeToggle } from "@/components/theme-toggle";
-import { Button } from "@/components/ui/button";
 import { getCurrentUser } from "@/lib/session";
+
+const sections = [
+  { href: "#goods", label: "Goods" },
+  { href: "#departments", label: "Departments" },
+];
+
+const navLinkClass =
+  "inline-flex h-11 items-center px-2 font-mono text-eyebrow uppercase tracking-label transition-colors hover:text-brand sm:px-3";
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center gap-6">
-          <Link href="/" className="font-heading text-xl tracking-display">
-            Best<span className="text-brand">Shop</span>
-          </Link>
-          <nav aria-label="Main" className="hidden items-center gap-1 sm:flex">
-            <Button asChild variant="ghost" size="sm">
-              <Link href="/products">Products</Link>
-            </Button>
-          </nav>
-        </div>
+    <header className="sticky top-0 z-40 border-b border-border bg-background">
+      <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-x-6 gap-y-1 px-4 py-2 sm:px-6 lg:px-8">
+        <Link
+          href="/"
+          className="order-1 inline-flex h-11 shrink-0 items-center font-display text-lg uppercase leading-none tracking-display sm:text-xl"
+        >
+          Best<span className="text-brand">Shop</span>
+        </Link>
 
-        <div className="flex items-center gap-1">
-          <ThemeToggle />
-          <Button asChild variant="ghost" size="sm">
-            <Link href="/cart" className="gap-1.5">
-              <ShoppingBag className="size-4 stroke-[1.5]" />
-              <span className="hidden sm:inline">Cart</span>
+        <nav
+          aria-label="On this page"
+          className="order-3 flex w-full items-center gap-1 border-t border-border pt-1 sm:order-2 sm:w-auto sm:border-t-0 sm:pt-0"
+        >
+          {sections.map((section) => (
+            <Link
+              key={section.href}
+              href={section.href}
+              className={navLinkClass}
+            >
+              {section.label}
             </Link>
-          </Button>
-          <Suspense fallback={<AuthLinks />}>
-            <SessionLinks />
+          ))}
+          <Link href="#delivery" className={`${navLinkClass} hidden lg:inline-flex`}>
+            Delivery
+          </Link>
+        </nav>
+
+        <nav
+          aria-label="Account and cart"
+          className="order-2 ml-auto flex items-center gap-1 sm:order-3"
+        >
+          <Suspense fallback={<AccountLinkFallback />}>
+            <AccountLink />
           </Suspense>
-        </div>
+          <Link href="/cart" className={navLinkClass}>
+            Cart
+          </Link>
+          <ThemeToggle />
+        </nav>
       </div>
     </header>
   );
 }
 
-function AuthLinks() {
+async function AccountLink() {
+  const user = await getCurrentUser();
+
   return (
-    <>
-      <Button asChild variant="ghost" size="sm">
-        <Link href="/login">Login</Link>
-      </Button>
-      <Button asChild size="sm">
-        <Link href="/register">Register</Link>
-      </Button>
-    </>
+    <Link href={user ? "/account" : "/login"} className={navLinkClass}>
+      {user ? "Account" : "Login"}
+    </Link>
   );
 }
 
-async function SessionLinks() {
-  const user = await getCurrentUser();
-  if (!user) return <AuthLinks />;
-
+function AccountLinkFallback() {
   return (
-    <Button asChild variant="ghost" size="sm">
-      <Link href="/account" className="gap-1.5">
-        <UserRound className="size-4 stroke-[1.5]" />
-        <span className="hidden max-w-24 truncate sm:inline">
-          {user.name.split(" ")[0]}
-        </span>
-      </Link>
-    </Button>
+    <span
+      role="status"
+      aria-busy="true"
+      className="inline-flex h-11 min-w-16 animate-pulse items-center justify-center bg-surface px-2"
+    >
+      <span className="sr-only">Loading account link</span>
+    </span>
   );
 }

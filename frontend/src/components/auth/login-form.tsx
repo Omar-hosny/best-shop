@@ -24,7 +24,7 @@ export function LoginForm({ next }: { next: string }) {
           Sign in to your account
         </h1>
         <p className="text-sm text-muted-foreground">
-          Your saved cart and orders are waiting.
+          Sign in to view your account details.
         </p>
       </div>
 
