@@ -16,12 +16,9 @@ export function LoginForm({ next }: { next: string }) {
     <form action={formAction} className="space-y-5">
       <input type="hidden" name="next" value={next} />
 
-      <div className="space-y-1.5">
-        <p className="text-eyebrow font-medium uppercase text-brand">
-          Welcome back
-        </p>
-        <h1 className="font-heading text-section tracking-display">
-          Sign in to your account
+      <div className="space-y-2 border-b-2 border-sign pb-5">
+        <h1 className="font-display text-[clamp(1.75rem,3vw,2.25rem)] uppercase leading-[1.08] tracking-display">
+          Sign in
         </h1>
         <p className="text-sm text-muted-foreground">
           Sign in to view your account details.
@@ -31,7 +28,7 @@ export function LoginForm({ next }: { next: string }) {
       {state.message ? (
         <p
           role="alert"
-          className="rounded-lg border border-destructive/25 bg-destructive/5 px-4 py-3 text-sm text-destructive"
+          className="rounded-2xl bg-destructive/10 px-4 py-3 text-sm text-destructive"
         >
           {state.message}
         </p>
@@ -70,7 +67,7 @@ export function LoginForm({ next }: { next: string }) {
         New to Best Shop?{" "}
         <Link
           href={registerHref}
-          className="font-medium text-foreground underline-offset-4 hover:underline"
+          className="font-bold text-brand underline-offset-4 hover:underline"
         >
           Create an account
         </Link>

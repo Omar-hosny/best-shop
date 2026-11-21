@@ -12,7 +12,9 @@ interface GoodsBoardProps {
 }
 
 const categoryId = (product: Product) =>
-  typeof product.category === "string" ? product.category : product.category._id;
+  typeof product.category === "string"
+    ? product.category
+    : product.category._id;
 
 const PREVIEW_LINES = 12;
 
@@ -35,13 +37,13 @@ export function GoodsBoard({ products, categories }: GoodsBoardProps) {
     active === "all"
       ? "All goods"
       : (categories.find((category) => category._id === active)?.name ??
-        "Selected category");
+        "Selected department");
 
   return (
     <div id="departments" className="mt-8">
       <div
         role="group"
-        aria-label="Filter goods by category"
+        aria-label="Filter goods by department"
         className="flex flex-wrap gap-2"
       >
         <FilterButton
@@ -69,24 +71,24 @@ export function GoodsBoard({ products, categories }: GoodsBoardProps) {
 
       <p
         aria-live="polite"
-        className="mt-6 border-b border-border pb-3 font-mono text-eyebrow uppercase tracking-label text-brand"
+        className="my-6 font-mono text-eyebrow font-medium uppercase tracking-label text-brand"
       >
         Showing {visible.length} of {matching.length}{" "}
-        {matching.length === 1 ? "line" : "lines"} / {activeLabel}
+        {matching.length === 1 ? "tag" : "tags"} / {activeLabel}
       </p>
 
       {visible.length ? (
-        <div className="grid gap-3 border-b border-border pb-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid gap-3 pb-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {visible.map((product) => (
             <ProductCard key={product._id} product={product} />
           ))}
         </div>
       ) : (
-        <div role="status" className="border-b border-border py-10">
+        <div role="status" className="py-10">
           <p className="font-display text-xl uppercase tracking-display">
-            No lines filed here
+            No tags on this hook
           </p>
-          <p className="mt-2 max-w-lg text-sm leading-6 text-muted-foreground">
+          <p className="mt-2 max-w-lg text-sm leading-7 text-muted-foreground">
             There are no goods in {activeLabel} right now. No substitutions have
             been made.
           </p>
@@ -97,7 +99,7 @@ export function GoodsBoard({ products, categories }: GoodsBoardProps) {
                 setActive("all");
                 setExpanded(false);
               }}
-              className="inline-flex min-h-11 items-center rounded-full bg-primary px-5 font-mono text-eyebrow font-bold uppercase tracking-label text-primary-foreground transition-colors hover:bg-primary/85"
+              className="inline-flex min-h-11 items-center bg-primary px-5 font-mono text-eyebrow font-bold uppercase tracking-label text-primary-foreground transition-colors hover:bg-primary/85"
             >
               Show all goods
             </button>
@@ -111,9 +113,9 @@ export function GoodsBoard({ products, categories }: GoodsBoardProps) {
           <button
             type="button"
             onClick={() => setExpanded(true)}
-            className="inline-flex min-h-11 items-center rounded-full border border-border px-5 font-mono text-eyebrow font-bold uppercase tracking-label transition-colors hover:border-foreground"
+            className="inline-flex min-h-11 items-center bg-surface px-5 font-mono text-eyebrow font-bold uppercase tracking-label transition-colors hover:bg-surface-accent hover:text-brand"
           >
-            Show remaining {matching.length - visible.length} lines
+            Hang the remaining {matching.length - visible.length} tags
           </button>
         </div>
       ) : null}
@@ -134,10 +136,10 @@ function FilterButton({ active, label, count, onClick }: FilterButtonProps) {
       type="button"
       onClick={onClick}
       aria-pressed={active}
-      className={`inline-flex min-h-11 items-center gap-2 rounded-full border px-3 font-mono text-eyebrow uppercase tracking-label transition-colors ${
+      className={`inline-flex min-h-11 items-center gap-2 px-3 font-mono text-eyebrow font-medium uppercase tracking-label transition-colors ${
         active
-          ? "border-foreground bg-foreground text-background"
-          : "border-border hover:border-foreground"
+          ? "bg-sign text-sign-foreground"
+          : "bg-surface hover:bg-surface-accent hover:text-brand"
       }`}
     >
       <span>{label}</span>

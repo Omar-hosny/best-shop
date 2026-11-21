@@ -9,8 +9,8 @@
   --color-foreground: var(--foreground);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--card);
+  --color-popover-foreground: var(--card-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
@@ -18,169 +18,168 @@
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-foreground: var(--foreground);
   --color-destructive: var(--destructive);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  /* Waybill surface tokens */
+  /* Stall surface tokens */
   --color-surface: var(--surface);
   --color-surface-accent: var(--surface-accent);
-  --color-surface-foreground: var(--surface-foreground);
+  --color-surface-foreground: var(--foreground);
+  --color-sign: var(--sign);
+  --color-sign-foreground: var(--sign-foreground);
+  --color-bulb: var(--bulb);
+  --color-bulb-foreground: var(--bulb-foreground);
   --color-subtle: var(--subtle);
   --color-brand: var(--brand);
   --color-brand-foreground: var(--brand-foreground);
-  --color-rating: var(--rating);
+  --color-rating: var(--foreground);
 
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
+  --color-sidebar-ring: var(--ring);
+  --color-sidebar-border: var(--border);
+  --color-sidebar-accent-foreground: var(--foreground);
+  --color-sidebar-accent: var(--surface-accent);
+  --color-sidebar-primary-foreground: var(--primary-foreground);
+  --color-sidebar-primary: var(--primary);
+  --color-sidebar-foreground: var(--foreground);
+  --color-sidebar: var(--surface);
+  --color-chart-5: var(--bulb);
+  --color-chart-4: var(--surface-accent);
+  --color-chart-3: var(--subtle);
+  --color-chart-2: var(--sign);
+  --color-chart-1: var(--primary);
 
-  --font-sans: var(--font-outfit);
-  --font-mono: var(--font-plex-mono);
-  --font-heading: var(--font-newsreader);
-  --font-display: var(--font-archivo-black);
+  --font-sans: var(--font-karla), system-ui, sans-serif;
+  --font-mono: var(--font-roboto-mono), ui-monospace, monospace;
+  --font-heading: var(--font-bungee), Impact, sans-serif;
+  --font-display: var(--font-bungee), Impact, sans-serif;
 
-  /* Waybill surface: soft rounded panels, pill actions */
   --radius-media: 0.125rem;
   --radius-pill: 999px;
-  --radius-sm: calc(var(--radius) * 0.5);
-  --radius-md: calc(var(--radius) * 0.75);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.5);
-  --radius-2xl: calc(var(--radius) * 2);
-  --radius-3xl: calc(var(--radius) * 3);
-  --radius-4xl: calc(var(--radius) * 4);
+  --radius-sm: 0.125rem;
+  --radius-md: 0.125rem;
+  --radius-lg: 0.125rem;
+  --radius-xl: 0.125rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 0.125rem;
+  --radius-4xl: 2rem;
 
-  --shadow-pill: var(--pill-shadow);
-  --shadow-float: var(--float-shadow);
+  --shadow-pill: none;
+  --shadow-float: none;
 
-  --tracking-display: -0.04em;
+  --tracking-display: 0.01em;
   --tracking-label: 0.08em;
 
-  --text-display: 4rem;
-  --text-display--line-height: 0.92;
-  --text-display--letter-spacing: -0.04em;
-  --text-section: 2.25rem;
-  --text-section--line-height: 1.05;
+  --text-display: 3.75rem;
+  --text-display--line-height: 1.02;
+  --text-display--letter-spacing: 0.01em;
+  --text-section: 2rem;
+  --text-section--line-height: 1.08;
   --text-product: 0.875rem;
   --text-product--line-height: 1.45;
   --text-eyebrow: 0.75rem;
-  --text-eyebrow--line-height: 1.3;
+  --text-eyebrow--line-height: 1.35;
   --text-eyebrow--letter-spacing: 0.08em;
 }
 
 :root {
   color-scheme: light;
 
-  --background: #f3ead8;
-  --foreground: #1b2a52;
+  --background: #fff3dc;
+  --foreground: #2a1738;
 
-  --card: #fffcf4;
-  --card-foreground: #1b2a52;
-  --popover: #fffcf4;
-  --popover-foreground: #1b2a52;
-
-  --primary: #c2410c;
-  --primary-foreground: #ffffff;
-  --secondary: #e5d9c2;
-  --secondary-foreground: #1b2a52;
-  --muted: #e9dfcb;
-  --muted-foreground: #4a4360;
-  --accent: #e5d9c2;
-  --accent-foreground: #1b2a52;
-  --destructive: #a82718;
-  --border: #b9aa90;
-  --input: #b9aa90;
+  --card: #fffcf1;
+  --card-foreground: #2a1738;
+  --secondary: #f0e2c4;
+  --secondary-foreground: #2a1738;
+  --muted: #f0e2c4;
+  --muted-foreground: #5b4566;
+  --accent: #f3d9a6;
+  --destructive: #a32121;
+  --border: #bfa984;
+  --input: #7c6487;
   --ring: #c2410c;
 
-  --surface: #e9dfcb;
-  --surface-accent: #ded2ba;
-  --surface-foreground: #1b2a52;
-  --subtle: #5e5749;
+  --surface: #f5e7c9;
+  --surface-accent: #e8d2a5;
+  --sign: #2a1738;
+  --sign-foreground: #fff3dc;
+  --bulb: #f4b740;
+  --bulb-foreground: #171029;
+  --subtle: #6b5674;
+  --primary: #c2410c;
+  --primary-foreground: #ffffff;
   --brand: #c2410c;
   --brand-foreground: #ffffff;
-  --rating: #1b2a52;
 
-  --pill-shadow: 0 2px 10px rgb(27 42 82 / 0.1);
-  --float-shadow: 0 8px 22px rgb(27 42 82 / 0.12);
+  --pill-shadow: none;
+  --float-shadow: none;
 
   --radius: 0.125rem;
 
   --chart-1: #c2410c;
-  --chart-2: #1b2a52;
-  --chart-3: #5e5749;
-  --chart-4: #ded2ba;
-  --chart-5: #b9aa90;
-  --sidebar: #e9dfcb;
-  --sidebar-foreground: #1b2a52;
+  --chart-2: #2a1738;
+  --chart-3: #6b5674;
+  --chart-4: #e8d2a5;
+  --chart-5: #f4b740;
+  --sidebar: #f5e7c9;
+  --sidebar-foreground: #2a1738;
   --sidebar-primary: #c2410c;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #ded2ba;
-  --sidebar-accent-foreground: #1b2a52;
-  --sidebar-border: #b9aa90;
+  --sidebar-accent: #e8d2a5;
+  --sidebar-accent-foreground: #2a1738;
+  --sidebar-border: #bfa984;
   --sidebar-ring: #c2410c;
 }
 
 .dark {
   color-scheme: dark;
 
-  --background: #101b33;
-  --foreground: #f3ead8;
+  --background: #171029;
+  --foreground: #fff3dc;
 
-  --card: #182748;
-  --card-foreground: #f3ead8;
-  --popover: #182748;
-  --popover-foreground: #f3ead8;
+  --card: #251a3b;
+  --card-foreground: #fff3dc;
+  --secondary: #2e2047;
+  --secondary-foreground: #fff3dc;
+  --muted: #2e2047;
+  --muted-foreground: #d8cbe6;
+  --accent: #3a2a57;
+  --destructive: #ff8f7d;
+  --border: #624d80;
+  --input: #9a85b6;
+  --ring: #ffb27a;
 
+  --surface: #211638;
+  --surface-accent: #2e2047;
+  --sign: #fff3dc;
+  --sign-foreground: #171029;
+  --bulb: #f4b740;
+  --bulb-foreground: #171029;
+  --subtle: #bcaad0;
   --primary: #c2410c;
   --primary-foreground: #ffffff;
-  --secondary: #1d2e52;
-  --secondary-foreground: #f3ead8;
-  --muted: #1d2e52;
-  --muted-foreground: #c8d0df;
-  --accent: #1d2e52;
-  --accent-foreground: #f3ead8;
-  --destructive: #ff7a68;
-  --border: #40527a;
-  --input: #40527a;
-  --ring: #ff8a5b;
+  --brand: #ffb27a;
+  --brand-foreground: #171029;
 
-  --surface: #182748;
-  --surface-accent: #1d2e52;
-  --surface-foreground: #f3ead8;
-  --subtle: #b9c3d6;
-  --brand: #ff8a5b;
-  --brand-foreground: #101b33;
-  --rating: #f3ead8;
+  --pill-shadow: none;
+  --float-shadow: none;
 
-  --pill-shadow: 0 2px 12px rgb(0 0 0 / 0.3);
-  --float-shadow: 0 8px 24px rgb(0 0 0 / 0.38);
-
-  --chart-1: #ff8a5b;
-  --chart-2: #f3ead8;
-  --chart-3: #b9c3d6;
-  --chart-4: #1d2e52;
-  --chart-5: #40527a;
-  --sidebar: #182748;
-  --sidebar-foreground: #f3ead8;
-  --sidebar-primary: #ff8a5b;
-  --sidebar-primary-foreground: #101b33;
-  --sidebar-accent: #1d2e52;
-  --sidebar-accent-foreground: #f3ead8;
-  --sidebar-border: #40527a;
-  --sidebar-ring: #ff8a5b;
+  --chart-1: #ffb27a;
+  --chart-2: #fff3dc;
+  --chart-3: #bcaad0;
+  --chart-4: #2e2047;
+  --chart-5: #624d80;
+  --sidebar: #211638;
+  --sidebar-foreground: #fff3dc;
+  --sidebar-primary: #c2410c;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #2e2047;
+  --sidebar-accent-foreground: #fff3dc;
+  --sidebar-border: #624d80;
+  --sidebar-ring: #ffb27a;
 }
 
 @layer base {
@@ -212,6 +211,11 @@ html {
   }
 }
 
+::-moz-selection {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
 ::selection {
   background-color: var(--primary);
   color: var(--primary-foreground);
@@ -220,6 +224,68 @@ html {
 :focus-visible {
   outline: 3px solid var(--ring);
   outline-offset: 3px;
+}
+
+input,
+textarea {
+  caret-color: var(--primary);
+}
+
+main a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+/* Painted sign: the one reusable surface language across the whole shop. */
+.sign {
+  border-radius: var(--radius-4xl);
+  background: var(--card);
+  color: var(--foreground);
+}
+
+.sign-solid {
+  border-radius: var(--radius-4xl);
+  background: var(--sign);
+  color: var(--sign-foreground);
+}
+
+/* The single authored motion: bulbs coming on above the delivery board. */
+.bulb-string {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  padding-top: 0.4rem;
+}
+
+.bulb-string::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 4%;
+  left: 4%;
+  border-top: 2px solid var(--sign);
+}
+
+.bulb {
+  position: relative;
+  width: 0.7rem;
+  height: 0.7rem;
+  border: 2px solid var(--sign);
+  border-radius: 999px;
+  background: var(--bulb);
+  animation: bulb-on 720ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes bulb-on {
+  from {
+    opacity: 0.35;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .skip-link {
@@ -231,10 +297,10 @@ html {
   min-height: 2.75rem;
   align-items: center;
   padding: 0 1.25rem;
-  border-radius: 999px;
+  border: 2px solid var(--primary-foreground);
   background: var(--primary);
   color: var(--primary-foreground);
-  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-family: var(--font-roboto-mono), ui-monospace, monospace;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -275,30 +341,6 @@ table {
   border-radius: 999px;
 }
 
-/* Kept for the existing auth pages; the homepage does not use this ornament. */
-.concentric-rings {
-  background-image: repeating-radial-gradient(
-    circle at center,
-    transparent 0,
-    transparent 38px,
-    var(--border) 39px,
-    var(--border) 40px
-  ); /* impeccable-disable-line repeating-stripes-gradient */
-}
-
-.stamp-press {
-  animation: stamp-press 620ms cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-@keyframes stamp-press {
-  from {
-    transform: rotate(-1deg) scale(1.015);
-  }
-  to {
-    transform: rotate(-3deg) scale(1);
-  }
-}
-
 /* Added briefly by the theme toggle so only the switch crossfades. */
 html.theme-transition *,
 html.theme-transition *::before,
@@ -314,9 +356,10 @@ html.theme-transition *::after {
   html {
     scroll-behavior: auto;
   }
-  .stamp-press {
-    animation: none !important;
-    transform: rotate(-3deg);
+  .bulb {
+    animation: none;
+    opacity: 1;
+    transform: none;
   }
   .skip-link {
     transition: none;

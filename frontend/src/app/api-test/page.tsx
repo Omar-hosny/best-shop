@@ -6,23 +6,43 @@ import type { Pagination, Product, ValidationIssue } from "@/lib/types";
 // Temporary Step 2 probe. Deleted once the real /products page exists.
 export default function ApiTestPage() {
   return (
-    <main className="mx-auto max-w-3xl p-8">
-      <h1 className="text-2xl font-semibold">API round-trip test</h1>
-      <p className="mt-2 text-sm text-zinc-600">
-        Temporary probe for the server-only API client.
-      </p>
+    <main id="main" className="mx-auto max-w-3xl px-4 py-14 sm:px-8">
+      <div className="border-b-2 border-sign pb-5">
+        <h1 className="font-display text-section uppercase leading-tight tracking-display">
+          API round-trip test
+        </h1>
+        <p className="mt-3 text-sm text-muted-foreground">
+          Temporary probe for the server-only API client.
+        </p>
+      </div>
 
-      <section className="mt-8">
-        <h2 className="font-medium">GET /products?limit=3</h2>
+      <section className="mt-8 rounded-4xl bg-card p-5">
+        <h2 className="font-mono text-eyebrow font-bold uppercase tracking-label">
+          GET /products?limit=3
+        </h2>
         {/* With Cache Components, uncached fetches must sit behind Suspense. */}
-        <Suspense fallback={<p className="mt-2 text-sm">Loading products…</p>}>
+        <Suspense
+          fallback={
+            <p className="mt-2 text-sm text-muted-foreground">
+              Loading products…
+            </p>
+          }
+        >
           <ProductProbe />
         </Suspense>
       </section>
 
-      <section className="mt-8">
-        <h2 className="font-medium">GET /products?limit=999 (expect 422)</h2>
-        <Suspense fallback={<p className="mt-2 text-sm">Checking validation…</p>}>
+      <section className="mt-8 rounded-4xl bg-card p-5">
+        <h2 className="font-mono text-eyebrow font-bold uppercase tracking-label">
+          GET /products?limit=999 (expect 422)
+        </h2>
+        <Suspense
+          fallback={
+            <p className="mt-2 text-sm text-muted-foreground">
+              Checking validation…
+            </p>
+          }
+        >
           <ValidationProbe />
         </Suspense>
       </section>
@@ -36,13 +56,13 @@ async function ProductProbe() {
   );
 
   return (
-    <div className="mt-2 text-sm">
+    <div className="mt-3 font-mono text-sm">
       <ul className="list-inside list-disc">
         {products.map((product) => (
           <li key={product._id}>{product.name}</li>
         ))}
       </ul>
-      <pre className="mt-3 overflow-x-auto rounded bg-zinc-100 p-3 text-xs">
+      <pre className="mt-3 overflow-x-auto rounded-4xl bg-surface p-3 text-eyebrow">
         {JSON.stringify(pagination satisfies Pagination | undefined, null, 2)}
       </pre>
     </div>
@@ -75,11 +95,13 @@ async function ValidationProbe() {
   }
 
   if (outcome.kind === "unexpected") {
-    return <p className="mt-2 text-sm">Unexpected success — expected a 422.</p>;
+    return (
+      <p className="mt-3 font-mono text-sm">Unexpected success — expected a 422.</p>
+    );
   }
 
   return (
-    <pre className="mt-2 overflow-x-auto rounded bg-zinc-100 p-3 text-xs">
+    <pre className="mt-3 overflow-x-auto rounded-4xl bg-surface p-3 font-mono text-eyebrow">
       {JSON.stringify(
         { status: outcome.status, message: outcome.message, errors: outcome.errors },
         null,

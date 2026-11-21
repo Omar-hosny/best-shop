@@ -20,11 +20,8 @@ export function RegisterForm({ next }: { next: string }) {
     <form action={formAction} className="space-y-5">
       <input type="hidden" name="next" value={next} />
 
-      <div className="space-y-1.5">
-        <p className="text-eyebrow font-medium uppercase text-brand">
-          Join Best Shop
-        </p>
-        <h1 className="font-heading text-section tracking-display">
+      <div className="space-y-2 border-b-2 border-sign pb-5">
+        <h1 className="font-display text-[clamp(1.75rem,3vw,2.25rem)] uppercase leading-[1.08] tracking-display">
           Create your account
         </h1>
         <p className="text-sm text-muted-foreground">
@@ -35,7 +32,7 @@ export function RegisterForm({ next }: { next: string }) {
       {state.message ? (
         <p
           role="alert"
-          className="rounded-lg border border-destructive/25 bg-destructive/5 px-4 py-3 text-sm text-destructive"
+          className="rounded-2xl bg-destructive/10 px-4 py-3 text-sm text-destructive"
         >
           {state.message}
         </p>
@@ -85,7 +82,7 @@ export function RegisterForm({ next }: { next: string }) {
           type="button"
           onClick={() => setShowPassword((shown) => !shown)}
           aria-label={showPassword ? "Hide password" : "Show password"}
-          className="absolute top-[2.25rem] right-1 rounded-pill p-1.5 text-subtle transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          className="absolute top-[2.15rem] right-1 inline-flex size-11 items-center justify-center text-subtle transition-colors hover:text-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
           {showPassword ? (
             <EyeOff className="size-4 stroke-[1.5]" aria-hidden="true" />
@@ -117,7 +114,7 @@ export function RegisterForm({ next }: { next: string }) {
         Already have an account?{" "}
         <Link
           href={loginHref}
-          className="font-medium text-foreground underline-offset-4 hover:underline"
+          className="font-bold text-brand underline-offset-4 hover:underline"
         >
           Sign in
         </Link>

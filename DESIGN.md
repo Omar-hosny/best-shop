@@ -1,122 +1,117 @@
 ---
 name: Best Shop
-description: Live goods, plain prices, and cash on delivery printed like a waybill.
+description: A night-market stall of live goods, painted price tags, and cash paid at the door.
 colors:
   primary: "#c2410c"
   primary-foreground: "#ffffff"
-  kraft-paper: "#f3ead8"
-  ink-navy: "#1b2a52"
-  paper-card: "#fffcf4"
-  surface: "#e9dfcb"
-  surface-accent: "#ded2ba"
-  muted-ink: "#4a4360"
-  rule: "#b9aa90"
-  subtle-ink: "#5e5749"
-  dark-ground: "#101b33"
-  dark-card: "#182748"
-  dark-ink: "#f3ead8"
-  dark-muted-ink: "#c8d0df"
-  dark-rule: "#40527a"
-  dark-accent: "#ff8a5b"
+  brand: "#c2410c"
+  brand-foreground: "#ffffff"
+  ivory: "#fff3dc"
+  aubergine: "#2a1738"
+  card: "#fffcf1"
+  surface: "#f5e7c9"
+  surface-accent: "#e8d2a5"
+  sign: "#2a1738"
+  sign-foreground: "#fff3dc"
+  bulb: "#f4b740"
+  bulb-foreground: "#171029"
+  rule: "#bfa984"
+  muted-ink: "#5b4566"
+  subtle: "#6b5674"
+  destructive: "#a32121"
+  night-ground: "#171029"
+  night-card: "#251a3b"
+  night-ink: "#fff3dc"
+  night-muted-ink: "#d8cbe6"
+  night-rule: "#624d80"
+  night-surface: "#211638"
+  night-surface-accent: "#2e2047"
+  night-brand: "#ffb27a"
+  night-brand-foreground: "#171029"
+  night-destructive: "#ff8f7d"
 typography:
   display:
-    fontFamily: "Archivo Black, Arial Black, sans-serif"
-    fontSize: "clamp(3rem, 8vw, 6rem)"
+    fontFamily: "Bungee, Impact, sans-serif"
+    fontSize: "clamp(2.25rem, 5.4vw, 4rem)"
     fontWeight: 400
-    lineHeight: 0.88
-    letterSpacing: "-0.04em"
+    lineHeight: 1.04
+    letterSpacing: "0.01em"
   headline:
-    fontFamily: "Archivo Black, Arial Black, sans-serif"
-    fontSize: "2.25rem"
+    fontFamily: "Bungee, Impact, sans-serif"
+    fontSize: "2rem"
+    fontWeight: 400
+    lineHeight: 1.08
+    letterSpacing: "0.01em"
+  title:
+    fontFamily: "Bungee, Impact, sans-serif"
+    fontSize: "clamp(1.75rem, 2.6vw, 2.5rem)"
     fontWeight: 400
     lineHeight: 1.05
-    letterSpacing: "-0.04em"
-  title:
-    fontFamily: "Archivo Black, Arial Black, sans-serif"
-    fontSize: "1.25rem"
-    fontWeight: 400
-    lineHeight: 1.1
-    letterSpacing: "-0.04em"
+    letterSpacing: "0.01em"
   body:
-    fontFamily: "Outfit, system-ui, sans-serif"
+    fontFamily: "Karla, system-ui, sans-serif"
     fontSize: "1rem"
     fontWeight: 400
     lineHeight: 1.75
   product:
-    fontFamily: "IBM Plex Mono, ui-monospace, monospace"
+    fontFamily: "Roboto Mono, ui-monospace, monospace"
     fontSize: "0.875rem"
-    fontWeight: 600
+    fontWeight: 700
     lineHeight: 1.45
-  ledger:
-    fontFamily: "IBM Plex Mono, ui-monospace, monospace"
-    fontSize: "0.875rem"
-    fontWeight: 400
-    lineHeight: 1.6
   label:
-    fontFamily: "IBM Plex Mono, ui-monospace, monospace"
+    fontFamily: "Roboto Mono, ui-monospace, monospace"
     fontSize: "0.75rem"
     fontWeight: 500
-    lineHeight: 1.3
+    lineHeight: 1.35
     letterSpacing: "0.08em"
 rounded:
-  field: "2px"
+  panel: "2px"
   media: "2px"
   pill: "999px"
-  panel: "24px"
-  panel-inner: "16px"
 spacing:
   page-x: "1rem"
   page-x-sm: "1.5rem"
   page-x-lg: "2rem"
-  section-y: "3.5rem"
-  section-y-lg: "5rem"
-  grid-gap: "2rem"
+  section-y: "3rem"
+  section-y-lg: "4rem"
+  grid-gap: "0.75rem"
   row-y: "1rem"
 components:
   button-primary:
     backgroundColor: "{colors.primary}"
     textColor: "{colors.primary-foreground}"
     typography: "{typography.label}"
-    rounded: "{rounded.pill}"
-    padding: "0.75rem 1.5rem"
+    rounded: "{rounded.panel}"
+    padding: "0 1.5rem"
     height: "3rem"
   button-secondary:
-    backgroundColor: "transparent"
-    textColor: "{colors.ink-navy}"
+    backgroundColor: "{colors.card}"
+    textColor: "{colors.aubergine}"
     typography: "{typography.label}"
-    rounded: "{rounded.pill}"
-    padding: "0.75rem 1.25rem"
-    height: "2.75rem"
-  filter-chip:
-    backgroundColor: "transparent"
-    textColor: "{colors.ink-navy}"
-    typography: "{typography.label}"
-    rounded: "{rounded.pill}"
-    padding: "0.75rem"
-    height: "2.75rem"
-  filter-chip-active:
-    backgroundColor: "{colors.ink-navy}"
-    textColor: "{colors.kraft-paper}"
-    typography: "{typography.label}"
-    rounded: "{rounded.pill}"
-    padding: "0.75rem"
-    height: "2.75rem"
-  waybill-panel:
-    backgroundColor: "{colors.paper-card}"
-    textColor: "{colors.ink-navy}"
-    padding: "1.25rem"
     rounded: "{rounded.panel}"
-  delivery-stamp:
-    backgroundColor: "{colors.paper-card}"
-    textColor: "{colors.primary}"
-    typography: "{typography.title}"
-    padding: "1rem 1.25rem"
+    padding: "0 1.25rem"
+    height: "2.75rem"
+  sign-panel:
+    backgroundColor: "{colors.card}"
+    textColor: "{colors.aubergine}"
+    padding: "1rem"
+    rounded: "{rounded.panel}"
+  sign-solid:
+    backgroundColor: "{colors.sign}"
+    textColor: "{colors.sign-foreground}"
+    padding: "1.25rem 1.5rem"
     rounded: "{rounded.panel}"
   product-card:
-    backgroundColor: "{colors.paper-card}"
-    textColor: "{colors.ink-navy}"
+    backgroundColor: "{colors.card}"
+    textColor: "{colors.aubergine}"
     typography: "{typography.product}"
     padding: "1rem"
+    rounded: "{rounded.panel}"
+  bulb-badge:
+    backgroundColor: "{colors.bulb}"
+    textColor: "{colors.bulb-foreground}"
+    typography: "{typography.label}"
+    padding: "0.25rem 0.5rem"
     rounded: "{rounded.panel}"
 ---
 
@@ -124,142 +119,151 @@ components:
 
 ## Overview
 
-**Creative North Star: "The Delivery Slip"**
+**Creative North Star: "Lantern Bazaar"**
 
-The storefront reads as a printed waybill: goods, costs, and payment printed with bureaucratic clarity on warm kraft paper. It replaces the previous editorial field-guide world rather than polishing it. Metaphor never sits in front of merchandise; the live goods cards are the hero, and the cash-on-delivery stamp is the one memorable flourish.
+The storefront is a stall at dusk: goods hung on a board, prices painted on square paper tags, and a warm bulb strand strung above the payment sign. It replaces the waybill / delivery-slip identity wholesale rather than polishing it. The world is built from heavy 2px sign borders, ivory canvas and aubergine ink, one burnt-orange action color, and a single authored moment of bulbs coming on. Metaphor never stands in front of merchandise — the live goods cards are the hero, and the cash-on-delivery board is the one memorable fixture.
 
-The system is flat, ruled, and dense enough to be trusted. Fine muted rules form the grid, IBM Plex Mono carries every label and number, and burnt orange appears only where the visitor needs to act or where the payment promise is stamped. Product photography remains API-supplied; the homepage ships no local raster and invents no inventory or social proof.
+The system is flat, squared-off, and legible at a glance under a night-market's warm light. Bungee paints the sign lettering, Karla carries the prose, and Roboto Mono prints every figure that changes with a live read. Product photography stays API-supplied; no local raster ships and no inventory, price, or social proof is invented. Loading, empty, and failed reads are stated honestly in the stall's own language.
 
 **Key Characteristics:**
 
-- Kraft ground with carbon-copy separations and softly rounded paper panels.
-- One action color, used sparingly on primary buttons, live status, and the COD stamp.
-- Tabular mono data for prices, stock, categories, and costs.
-- Pill-shaped actions and chips inside a softly rounded paper-panel world.
-- Honest loading, empty, and failure states instead of placeholder goods.
+- Ivory canvas with aubergine sign ink in light mode; deep aubergine night ground and ivory ink in dark mode.
+- One action color, #c2410c, reserved for actions and live signals; a lighter #ffb27a only for text on dark surfaces.
+- Painted-sign display (Bungee), readable body (Karla), tabular mono figures (Roboto Mono).
+- Square paper tags with a 2px border and a single punched hole; round bulbs are the only soft geometry.
+- Flat surfaces, no shadows or gradients, one bulb-strand entrance, and themed browser chrome.
+
+**Direction provenance.** Lantern Bazaar was assigned candidate 4 of the grounded list: general-store counter, doorstep photo handoff, post-office money order, open-air night market under string lights, cash drawer/till, classifieds noticeboard, delivery-tracking interface; seed `e7b66a13273a9ecb`. The product surface dealt index 7 as lead (seed `772744a9ff5dd1f2`) and its expression is a pegboard stall display with a hanging price ticket, not a docket. Challengers — drawcord cape, glazier colorfield partition, teletext, arcade pixel glow, luxury fashion flagship, dark developer console — were declined; two raises survive: DRAWCORD STATE VOCABULARY (states are named explicitly, never implied by color alone) and ARCADE PALETTE LAW (the accent belongs only to actions and live signals).
 
 ## Colors
 
-The palette is paper, ink, and one burnt-orange stamp. Dark mode keeps the same primary on buttons but lifts text and stamp accents to a lighter tint of the same hue.
+The palette is warm paper, aubergine sign paint, a bulb yellow, and one burnt-orange action. Dark mode inverts ground and ink but keeps the bulb, the action, and the bulb's dark foreground fixed.
 
 ### Primary
 
-- **Burnt Orange Stamp** (#c2410c): The binding primary. Used on the primary action, live-read status, stock counts, filter counts, and the double-rule cash-on-delivery stamp. It never becomes a background wash.
+- **Burnt Orange Action** (#c2410c): The binding accent. Filled only for primary actions; also the live-read count, the "No" on the card-needed line, and the "View item" cue. It never becomes a background wash.
+- **Night Tint** (#ffb27a): The same hue lifted for text and links on aubergine surfaces in dark mode. Buttons stay #c2410c in both themes.
 
 ### Neutral
 
-- **Kraft Paper** (#f3ead8): Page ground in light mode. Warm, opaque, and untextured; structure comes from rules, not grain.
-- **Ink Navy** (#1b2a52): Primary text, active filters, and the footer ground in light mode.
-- **Paper Card** (#fffcf4): Raised card and panel interior, used for the delivery stamp and cost ledger.
-- **Surface** (#e9dfcb): Quiet tonal layer for media placeholders, the delivery section, and loading blocks.
-- **Surface Accent** (#ded2ba): Secondary tonal layer retained for the broader app; not a homepage accent.
-- **Muted Ink** (#4a4360): Supporting copy and column labels in light mode.
-- **Rule** (#b9aa90): Panel borders, carbon-copy dividers, and input borders in light mode.
-- **Subtle Ink** (#5e5749): Low-emphasis supporting tone retained from the app palette.
-- **Night Ground** (#101b33): Dark-mode page ground.
-- **Night Card** (#182748): Dark-mode card and surface layer.
-- **Night Ink** (#f3ead8): Dark-mode body text.
-- **Night Muted Ink** (#c8d0df): Dark-mode supporting copy.
-- **Night Rule** (#40527a): Dark-mode borders and dividers.
-- **Night Stamp Tint** (#ff8a5b): Light tint of the primary hue for dark-mode text, stamp strokes, and focus rings. Buttons remain #c2410c.
+- **Ivory Canvas** (#fff3dc): Page ground in light mode; also the hole punched through a hanging tag. Warm, opaque, untextured.
+- **Aubergine Ink** (#2a1738): Body text in light mode and the solid sign ground for the header, footer, and delivery board; in dark mode those roles swap to ivory.
+- **Paper Card** (#fffcf1): Raised sign and tag interior.
+- **Stall Surface** (#f5e7c9): Quiet tonal layer for media beds, the auth side board, and loading blocks; **Stall Surface Accent** (#e8d2a5) is the broader secondary layer.
+- **Rule** (#bfa984): Hairline dividers inside a sign; **Muted Ink** (#5b4566) and **Subtle Ink** (#6b5674) carry supporting copy.
+- **Night Ground** (#171029): Dark-mode page ground; **Night Card** (#251a3b), **Night Surface** (#211638), **Night Rule** (#624d80), and **Night Muted Ink** (#d8cbe6) are the dark counterparts.
+- **Bulb Yellow** (#f4b740): Live indicators, in-stock badges, and bulb lights in both themes. Its ink is always **Bulb Foreground** (#171029) — never ivory.
 
-**The One Accent Rule.** Burnt orange is the only accent. If an element is not an action, a live-data signal, or the payment stamp, it does not get the accent.
+### Named Rules
 
-**The Rule Rule.** Structure is drawn with 1px muted rules, dashed carbon-copy separators, and tonal paper layers. The only heavy line is the double-rule cash-on-delivery stamp. No grain, rings, stripes, or gradient substitutes.
+**The One Accent Rule.** Burnt orange is the only accent. If an element is not an action or a live signal, it does not get the accent.
+
+**The Bulb Contrast Rule.** Bulb yellow always carries aubergine ink (#171029), in light and dark alike. Ivory on bulb is 1.6:1 and is never shipped.
 
 ## Typography
 
-**Display Font:** Archivo Black (with Arial Black fallback)
-**Body Font:** Outfit (with system-ui fallback)
-**Label/Mono Font:** IBM Plex Mono (with ui-monospace fallback)
+**Display Font:** Bungee (with Impact fallback)
+**Body Font:** Karla (with system-ui fallback)
+**Label / Figure Font:** Roboto Mono (with ui-monospace fallback)
 
-**Character:** Archivo Black is compressed, uppercase, and authoritative; it prints like a heading struck onto a form. IBM Plex Mono carries waybill copy, product names, labels, prices, stock counts, and costs so the whole form reads as entered data. Outfit remains the shared app body face outside this surface.
+**Character:** Bungee is a wide, uppercase painted-sign face — it reads as lettering struck onto a board, not typeset into a document. Karla is a plain, friendly body face that keeps real copy readable. Roboto Mono prints names, prices, stock, department counts, and field labels so live figures line up in tabular columns.
 
 ### Hierarchy
 
-- **Display** (400 weight, `clamp(3rem, 8vw, 6rem)`, 0.88 line-height): The Best Shop masthead only. Uppercase, tight tracking (-0.04em).
-- **Headline** (400 weight, 2.25rem, 1.05 line-height): Section titles such as Goods Manifest and Pay on Delivery.
-- **Title** (400 weight, 1.25rem, 1.1 line-height): The Live Goods label and the Cash on Delivery stamp.
-- **Body** (400 weight, 1rem, 1.75 line-height): Shared app copy outside the waybill.
-- **Ledger** (400 weight, 0.875rem, 1.6 line-height): Waybill proof statements and delivery explanation; practical measure capped near 65ch.
-- **Product** (600 weight, 0.875rem, 1.45 line-height): Mono product names and price cells in the goods ledger.
-- **Label** (500 weight, 0.75rem, 1.3 line-height, 0.08em tracking): Mono labels, card fields, filters, buttons, and footer facts. Always uppercase in this surface.
+- **Display** (400 weight, `clamp(2.25rem, 5.4vw, 4rem)`, 1.04 line-height, 0.01em tracking): The stall statement and page titles, uppercase and balanced.
+- **Headline** (400 weight, 2rem, 1.08 line-height): Section titles such as "Pay at the door" and "Stall notes".
+- **Title** (400 weight, `clamp(1.75rem, 2.6vw, 2.5rem)`, 1.05 line-height): The cash-on-delivery board and other sign-face sub-statements.
+- **Body** (400 weight, 1rem, 1.75 line-height): Real prose, capped near 65–75ch; never set in mono.
+- **Product** (700 weight, 0.875rem, 1.45 line-height): Mono product names in the goods grid.
+- **Label** (500 or 700 weight, 0.75rem, 1.35 line-height, 0.08em tracking): Mono field labels, filter buttons, badges, buttons, and footer facts, always uppercase.
 
-**The Mono Ledger Rule.** On the waybill, explanatory copy, product names, and every value that changes with live data are mono and tabular. Outfit belongs to the rest of the app, not to the printed form.
+**The Live-Figure Rule.** Every number that came from the API — price, stock, counts, the delivery fee — is Roboto Mono with tabular numerals. Explanatory prose is Karla. Mono is data, not a technical costume.
 
 ## Layout
 
-A single 80rem container (`max-w-7xl`) holds the whole surface with `1rem` side padding on mobile, `1.5rem` from the small breakpoint, and `2rem` from the large breakpoint. Sections are separated by 1px muted full-width rules; internal section rhythm is `3.5rem`, growing to `5rem` on large screens.
+A single 80rem container (`max-w-7xl`) holds the whole surface with `1rem` side padding on mobile, `1.5rem` from the small breakpoint, and `2rem` from the large breakpoint. Structure is drawn with full-width 2px rules; section rhythm is `3rem`, growing to `4rem` on large screens.
 
-The masthead places the shop name and proof line against a bordered live-readout panel; at large widths they share a `1.5fr / 0.5fr` grid. That panel and the cost ledgers carry numbered waybill fields (`01`, `02`, `03`) with dashed carbon-copy separators; the numbers identify form fields, not document sections. Below the masthead, the live goods card grid and delivery stamp use `1fr / 19rem`. The goods manifest holds a wrapable filter row, a live status line, and a 12-card preview with a working Show remaining control. The closing delivery slip uses `1fr / 24rem` on large screens. The sticky header is opaque kraft paper and reserves `7.5rem` scroll margin on mobile and `5.5rem` from the small breakpoint; a skip link becomes visible on keyboard focus.
+The hero pairs a live-read masthead (shop name, catalog status, Bungee statement, copy, and actions) with a 20rem delivery board on large screens. A shelf of five real product tags sits under a 2px rule in the same column; the board is a bulb strand above a solid sign and a ruled fee schedule. The goods board carries a wrapping filter row, a live "showing N of M tags" line, and a four-column tag grid at the widest breakpoint that starts at one column on mobile. The closing pay-at-the-door section uses a `1fr / 24rem` split. Product detail uses `1.15fr / 0.85fr`: a pegboard photo bed with a hanging price ticket beside a field list, quantity control, and cash note. Auth screens use a `1.05fr / 1fr` split with a bulb-struck side board.
 
-Mobile collapses every grid into one column. The five hero cards keep image, name, category, price, and stock visible; the full manifest uses a responsive card grid with price and stock separated by a dashed carbon-copy rule. The header wraps to two rows on mobile: shop name and Account/Login, Cart, and theme toggle first, then the page anchors. Every visible interactive target is at least 44px tall.
+The sticky header is a solid aubergine sign with a bulb-colored live dot, wraps to two rows on mobile, and reserves `7.5rem` scroll margin on mobile and `5.5rem` from the small breakpoint. A skip link becomes visible on keyboard focus. Every interactive target is at least 44px tall; mobile collapses every grid to one column without hiding goods.
 
 ## Elevation & Depth
 
-The waybill is flat. Depth comes from paper tone changes and fine rule weight, not shadow. The delivery stamp is a card interior on the kraft ground with a rotated double-rule border; the active filter is an inverted ink rectangle. Existing shadow tokens are outside this surface's language.
+The stall is flat. Depth comes from surface tone and border weight, never shadow: both shadow tokens resolve to `none`, and no gradients or glass are used. A tag sits on the page because a 2px sign border encloses it; the price ticket overlaps the photo bed by `-mt-8` and is lifted by z-index, not by a cast shadow.
 
-**The Flat Form Rule.** Panels sit on the page by tone and a hairline border. No ambient shadows, lifted cards, or glass effects belong on the waybill.
+**The Flat Stall Rule.** No ambient shadows, lifted cards, or gradient washes. A zero-offset colored halo is decoration, not depth, and is not used for the bulbs either.
 
 ## Shapes
 
-Panels, media, product cards, filters, and ledgers use a `24px` corner radius, with `16px` on nested media so images clip cleanly inside their card. Actions are pill-shaped at `999px`. The stamp alone keeps its heavy double 4px burnt-orange rule, rotated -3deg; its 620ms entrance settles in and honors reduced motion.
+Signs and tags are square: every radius token except `pill` resolves to `2px`, including media, fields, and panels. The reusable surface language is `.sign` (2px border, card interior, foreground ink) and `.sign-solid` (2px border, solid sign ground, sign-foreground ink). A hanging tag adds `.tag::before`: an 8px ivory hole with a 2px sign ring punched at the top center. The only round elements are the bulb lights, the hole ring, and the live-dot indicators. The bulb strand is a 2px rule with five or six bulbs staggered by 110ms.
 
 ## Components
 
 ### Buttons
 
-- **Shape:** Pill (`999px`), minimum 44–48px tall.
-- **Primary:** Burnt orange ground, white uppercase mono label, `0.75rem 1.5rem` padding; used for Read the full goods list, Show all goods, and Back to live goods.
-- **Hover / Focus:** Primary darkens to 85% opacity; focus ring is 3px in the primary color with 3px offset.
-- **Secondary:** Transparent with a 1px muted border, or an underlined mono text link; hover inverts or shifts to the primary tint.
+- **Shape:** Square (2px), minimum 44–48px tall; uppercase mono label.
+- **Primary:** Burnt orange ground (#c2410c), white label, 2px sign border, `0 1.5rem` padding; used for "Shop the live goods" and other real state changes.
+- **Secondary:** Card ground with a 2px sign border; hover shifts border and text to the brand tint. A quiet text link is underlined with a 40%-opacity sign rule.
+- **Hover / Focus:** Primary darkens to 85% opacity; focus is a 3px ring in the theme's ring color (`#c2410c` light, `#ffb27a` dark) with 3px offset.
 
-### Chips
+### Filters
 
-- **Style:** Pill-shaped, 1px muted border, mono uppercase label plus live count.
-- **State:** Active filters invert to ink navy with kraft text; inactive filters keep kraft ground with ink text and a primary count. All filters carry `aria-pressed`.
+- **Style:** Square sign buttons, 2px border, mono label plus a live count.
+- **State:** Active inverts to the solid sign ground with sign-foreground text; inactive uses card ground with the count in brand orange. `aria-pressed` carries the state so color is not the only signal.
 
 ### Cards / Containers
 
-- **Corner Style:** Rounded (`24px`); nested media `16px`.
-- **Background:** Paper card or surface tone on the kraft ground.
+- **Corner Style:** Square (2px), including nested media.
+- **Background:** Card interior on the ivory (or night) ground, or the stall surface as a media bed.
+- **Border:** 2px sign border; the tag variant adds the punched hole at top center.
 - **Shadow Strategy:** None; see Elevation & Depth.
-- **Border:** 1px muted rule; the delivery stamp uses a 4px double primary rule.
-- **Internal Padding:** `1.25rem` for panels, `1rem` for stamp internals.
+- **Internal Padding:** `1rem` for tags, `1.25rem` for schedules and ledgers.
 
 ### Product Card
 
-- **Style:** Rounded `24px` panel with a 1px muted border on a paper-card interior; media uses a `16px` radius and is clipped cleanly. A `1px` dashed rule separates the live price from the live stock line.
-- **Type:** Category, name, price, stock, and labels are mono with tabular numerals.
-- **States:** Sold-out cards keep the same layout with muted stock text. Empty or failed reads use a bordered status block with a retry action, never sample cards. Streaming skeletons announce `role="status"` and `aria-busy="true"`.
-- **Affordance:** Cards are non-clickable because product detail pages do not exist; no hover cue implies a destination.
+- **Style:** A hanging paper tag — punched hole, 4/3 API image inside a 1px sign border, category and name in mono, a 2px sign rule above the price and stock line.
+- **State:** In-stock quantity is a bulb-yellow badge with aubergine ink; sold out drops the fill and keeps the border and layout. Empty or failed reads use a bordered status block with a retry action, never sample goods.
+- **Affordance:** The whole tag links to `/products/:id` and carries a "View item" line with an arrow icon in the brand tint.
+
+### Inputs / Fields
+
+- **Style:** 2px sign border, card ground, mono label above the field; focus ring from the theme's ring token.
+- **Error:** A 2px destructive border with a text error block that names the problem.
+- **Quantity control:** Square stepper with a bulb-tinted hover state; disabled at the stock ceiling.
 
 ### Navigation
 
-- **Style:** Sticky header, 1px muted bottom rule, opaque kraft ground, uppercase mono labels.
-- **Targets:** Logo, Goods, Departments, Delivery, Account/Login, Cart, and theme toggle are at least 44px tall and labeled.
-- **Scope:** Page anchors are in-page; Account and Login go to built routes and resolve from the server session. Cart goes to a placeholder page that says the cart is not built yet. Product and register links are still withheld, and the placeholder is never presented as checkout.
+- **Style:** Sticky solid-sign header with Bungee wordmark, a bulb-colored live dot, and uppercase mono links; a solid-sign footer repeats the delivery terms.
+- **Targets:** Goods, Departments, Delivery, Account/Login, Cart, and theme toggle are at least 44px tall and labeled.
 
-### Delivery Stamp
+### Delivery Board (signature)
 
-- **Character:** The signature object: a double-rule burnt-orange stamp reading CASH ON DELIVERY. Its container has no border or card ground, so the stamp is the only card in that column.
-- **Behavior:** Sits beside the live goods card grid in the first viewport, with the standard delivery fee and card-needed answer printed beneath it.
-- **Motion:** One 620ms settle from the already-visible stamp state into its final -3deg rotation; no fade or blur entrance. Reduced motion shows the final rotated stamp immediately.
+- **Character:** A bulb strand over a solid aubergine sign reading "Cash on delivery", with a square ruled schedule beneath it for the $7.99 standard fee and the "Card needed — No" answer.
+- **Motion:** The single authored moment: five bulbs come on with staggered 110ms delays over 720ms, easing from opacity 0.35 / scale 0.85 to full; reduced motion shows them lit immediately.
+
+### Product Docket (signature)
+
+- **Character:** A pegboard-style photo bed in the stall surface with a hanging price ticket punched through its top edge; beside it, a reference strip, a mono field list, quantity control, and a solid cash-on-delivery note.
+- **Truth:** Live price and stock only; a failed read says "This tag could not be read" with a retry and no substitute values.
 
 ## Do's and Don'ts
 
 ### Do:
 
-- **Do** read prices, stock, categories, and product names from the live API; show the honest failure state when the read fails.
-- **Do** keep primary buttons #c2410c in both themes; use #ff8a5b only as the dark-surface text and stamp tint.
-- **Do** use 1px muted rules, rounded panels, pill actions, and tabular IBM Plex Mono for live values.
-- **Do** keep all visible CTAs on working in-page anchors, built routes, honest placeholders, or real state changes, with targets at least 44px tall.
-- **Do** leave product photography to API-supplied URLs; this surface ships no local raster.
+- **Do** read prices, stock, categories, and product names from the live API and show the honest failure state when a read fails.
+- **Do** keep primary buttons #c2410c in both themes; use #ffb27a only for text and links on dark aubergine surfaces.
+- **Do** keep bulb-yellow badges on #171029 ink in both themes.
+- **Do** draw structure with 2px sign borders, square panels, 2px radii, and punched tags.
+- **Do** keep CTAs on working anchors, built routes, honest placeholders, or real state changes, with targets at least 44px tall.
+- **Do** theme selection, caret, scrollbars, focus rings, and underline offset from the palette.
+- **Do** leave product photography to API-supplied URLs; this system ships no local raster.
 
 ### Don't:
 
-- **Don't** add testimonials, customer counts, delivery dates, returns promises, benchmark numbers, or sample inventory.
-- **Don't** link to /products or /products/:id while those paths remain unbuilt, and don't present the cart placeholder as a working checkout.
-- **Don't** use grain, concentric rings, repeating stripes, gradients, italic display, numbered section labels, or editorial object language on the waybill.
-- **Don't** use Newsreader display type on this surface; it remains only for the untouched auth screens.
-- **Don't** hide goods behind hover, carousels, or decorative panels; the live goods cards are the hero.
+- **Don't** return to the waybill: no field numbers, carbon-copy separations, double-rule stamps, or rounded 24px paper panels.
+- **Don't** use shadows, gradients, glass, grain, or a zero-offset glow halo; the bulbs animate with opacity and transform only.
+- **Don't** put a kicker or eyebrow above a heading; the Bungee sign face carries its own weight.
+- **Don't** set body prose in mono or live figures in Karla; each face has one job.
+- **Don't** use Impact or Arial Black as the shipped display face — Bungee is self-hosted through `next/font`.
+- **Don't** invent inventory, testimonials, delivery dates, or social proof, or present the cart placeholder as checkout.
+- **Don't** hide goods behind hover, carousels, or decorative panels; the live tags are the hero.

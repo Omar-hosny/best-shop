@@ -29,7 +29,7 @@ export function FormField({
     <div className="space-y-2">
       <label
         htmlFor={inputId}
-        className="block text-sm font-medium tracking-[-0.01em]"
+        className="block font-mono text-eyebrow font-bold uppercase tracking-label"
       >
         {label}
       </label>
@@ -39,7 +39,7 @@ export function FormField({
         aria-invalid={error ? true : undefined}
         aria-describedby={error ? errorId : undefined}
         className={cn(
-          "h-11 w-full rounded-pill border border-input bg-background px-5 text-sm outline-none transition-colors placeholder:text-subtle focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/20",
+          "h-12 w-full rounded-2xl border border-border/60 bg-card px-4 font-mono text-sm outline-none transition-colors placeholder:text-subtle focus-visible:border-brand focus-visible:ring-2 focus-visible:ring-ring/30",
           error && "border-destructive focus-visible:border-destructive",
           className,
         )}

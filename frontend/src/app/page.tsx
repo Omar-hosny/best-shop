@@ -12,7 +12,6 @@ export default function Home() {
     <main id="main">
       <Suspense fallback={<HeroSkeleton />}>
         <Hero />
-
       </Suspense>
       <Suspense fallback={<GoodsManifestSkeleton />}>
         <GoodsManifest />

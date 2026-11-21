@@ -1,36 +1,35 @@
 export function DeliveryStamp() {
   return (
-    <aside className="flex flex-col justify-between gap-7 p-5 sm:p-6">
-      <p className="font-mono text-eyebrow uppercase tracking-label text-brand">
-        Payment field
-      </p>
+    <aside aria-label="Cash on delivery terms" className="flex flex-col gap-5">
+      <div className="bulb-string" aria-hidden="true">
+        {[0, 1, 2, 3, 4].map((bulb) => (
+          <span
+            key={bulb}
+            className="bulb"
+            style={{ animationDelay: `${bulb * 110}ms` }}
+          />
+        ))}
+      </div>
 
-      <div className="stamp-press w-fit rounded-[16px] border-4 border-double border-brand px-5 py-4 text-center text-brand">
-        <span className="block font-display text-2xl uppercase leading-[0.95] tracking-display sm:text-3xl">
+      <div className="sign-solid px-5 py-6 text-center sm:px-6 sm:py-8">
+        <p className="font-mono text-eyebrow font-medium uppercase tracking-label opacity-80">
+          Payment at the door
+        </p>
+        <p className="mt-4 font-display text-[clamp(1.75rem,2.6vw,2.5rem)] uppercase leading-[1.05] tracking-display">
           Cash on
           <br />
           delivery
-        </span>
+        </p>
       </div>
 
-      <dl className="space-y-2 border-t border-border pt-4 font-mono text-eyebrow uppercase tracking-label">
-        <div className="flex justify-between gap-4 border-b border-dashed border-border pb-2">
-          <dt>
-            <span aria-hidden="true" className="mr-2">
-              01
-            </span>
-            Standard delivery
-          </dt>
+      <dl className="sign mt-0 p-4 font-mono text-eyebrow uppercase tracking-label">
+        <div className="flex justify-between gap-4 pb-3">
+          <dt>Standard delivery</dt>
           <dd className="font-bold">$7.99</dd>
         </div>
-        <div className="flex justify-between gap-4">
-          <dt>
-            <span aria-hidden="true" className="mr-2">
-              02
-            </span>
-            Card needed
-          </dt>
-          <dd className="font-bold">No</dd>
+        <div className="flex justify-between gap-4 pt-3">
+          <dt>Card needed</dt>
+          <dd className="font-bold text-brand">No</dd>
         </div>
       </dl>
     </aside>

@@ -9,8 +9,14 @@ export const metadata: Metadata = { title: "Your account" };
 
 export default function AccountPage() {
   return (
-    <main id="main" className="mx-auto w-full max-w-3xl px-6 py-16 sm:px-10">
-      <Suspense fallback={<p className="text-sm text-muted-foreground">Loading your account…</p>}>
+    <main id="main" className="mx-auto w-full max-w-3xl px-4 py-14 sm:px-8 lg:py-20">
+      <Suspense
+        fallback={
+          <p className="text-sm text-muted-foreground">
+            Loading your account…
+          </p>
+        }
+      >
         <AccountContent />
       </Suspense>
     </main>
@@ -25,11 +31,8 @@ async function AccountContent() {
 
   return (
     <div className="space-y-10">
-      <div className="space-y-2">
-        <p className="text-eyebrow font-medium uppercase text-brand">
-          Your space
-        </p>
-        <h1 className="font-heading text-display tracking-display">
+      <div className="space-y-2 border-b-2 border-sign pb-6">
+        <h1 className="font-display text-[clamp(2rem,4vw,3rem)] uppercase leading-[1.05] tracking-display">
           Hello, {user.name.split(" ")[0]}
         </h1>
         <p className="text-sm text-muted-foreground">
@@ -37,34 +40,36 @@ async function AccountContent() {
         </p>
       </div>
 
-      <section className="rounded-2xl border border-border bg-card p-6 sm:p-8">
+      <section className="rounded-4xl bg-card p-6 sm:p-8">
         <div className="flex flex-wrap items-center gap-5">
-          <div className="flex size-16 shrink-0 items-center justify-center rounded-pill bg-surface font-heading text-2xl text-foreground">
+          <div className="flex size-16 shrink-0 items-center justify-center rounded-2xl bg-bulb font-display text-2xl tracking-display text-bulb-foreground">
             {initial}
           </div>
           <div className="min-w-0 flex-1">
-            <h2 className="truncate text-lg font-medium">{user.name}</h2>
-            <p className="truncate text-sm text-muted-foreground">{user.email}</p>
+            <h2 className="truncate font-mono text-product font-bold">{user.name}</h2>
+            <p className="truncate text-sm text-muted-foreground">
+              {user.email}
+            </p>
           </div>
-          <span className="rounded-pill bg-surface px-3 py-1.5 text-eyebrow font-medium uppercase tracking-label text-muted-foreground">
+          <span className="bg-surface px-3 py-1.5 font-mono text-eyebrow font-bold uppercase tracking-label">
             {user.role}
           </span>
         </div>
 
-        <dl className="mt-8 grid gap-6 border-t border-border pt-6 sm:grid-cols-2">
+        <dl className="mt-8 grid gap-6 pt-6 sm:grid-cols-2">
           <div>
-            <dt className="text-eyebrow uppercase tracking-label text-subtle">
+            <dt className="font-mono text-eyebrow font-medium uppercase tracking-label text-muted-foreground">
               Member since
             </dt>
-            <dd className="mt-1 font-mono text-sm">
+            <dd className="mt-1 font-mono text-sm font-bold">
               {user.createdAt?.slice(0, 10) ?? "—"}
             </dd>
           </div>
           <div>
-            <dt className="text-eyebrow uppercase tracking-label text-subtle">
+            <dt className="font-mono text-eyebrow font-medium uppercase tracking-label text-muted-foreground">
               Account status
             </dt>
-            <dd className="mt-1 font-mono text-sm">
+            <dd className="mt-1 font-mono text-sm font-bold">
               {user.isActive ? "Active" : "Inactive"}
             </dd>
           </div>

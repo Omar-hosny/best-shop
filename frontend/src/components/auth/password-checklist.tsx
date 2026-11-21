@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 
 export function PasswordChecklist({ value }: { value: string }) {
   return (
-    <ul className="grid grid-cols-1 gap-x-4 gap-y-1 pl-2 text-[0.7rem] text-subtle sm:grid-cols-2">
+    <ul className="grid grid-cols-1 gap-x-4 gap-y-1 pl-2 font-mono text-eyebrow tracking-label text-subtle sm:grid-cols-2">
       {getPasswordRules(value).map((rule) => (
         <li
           key={rule.id}

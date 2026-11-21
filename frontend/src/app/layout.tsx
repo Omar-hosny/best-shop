@@ -1,10 +1,5 @@
 import type { Metadata } from "next";
-import {
-  Archivo_Black,
-  IBM_Plex_Mono,
-  Newsreader,
-  Outfit,
-} from "next/font/google";
+import { Bungee, Karla, Roboto_Mono } from "next/font/google";
 import Script from "next/script";
 
 import { SiteFooter } from "@/components/site-footer";
@@ -12,26 +7,21 @@ import { SiteHeader } from "@/components/site-header";
 import "./globals.css";
 
 // Font loaders are hoisted to module scope so Next can inline the CSS once.
-const outfit = Outfit({
-  variable: "--font-outfit",
+const karla = Karla({
+  variable: "--font-karla",
   subsets: ["latin"],
 });
 
-const archivoBlack = Archivo_Black({
-  variable: "--font-archivo-black",
+const bungee = Bungee({
+  variable: "--font-bungee",
   subsets: ["latin"],
   weight: "400",
 });
 
-const newsreader = Newsreader({
-  variable: "--font-newsreader",
+const roboMono = Roboto_Mono({
+  variable: "--font-roboto-mono",
   subsets: ["latin"],
-});
-
-const plexMono = IBM_Plex_Mono({
-  variable: "--font-plex-mono",
-  subsets: ["latin"],
-  weight: ["400", "500"],
+  weight: ["400", "500", "700"],
 });
 
 // Runs before hydration so the correct theme is painted on the first frame.
@@ -55,15 +45,16 @@ export const metadata: Metadata = {
     template: "%s | Best Shop",
   },
   description:
-    "Read the live Best Shop catalog with real prices and stock, then pay cash on delivery.",
+    "Browse the live Best Shop stall with real prices and stock, then pay cash on delivery.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
+      data-scroll-behavior="smooth"
       lang="en"
       suppressHydrationWarning
-      className={`${outfit.variable} ${archivoBlack.variable} ${newsreader.variable} ${plexMono.variable} h-full antialiased`}
+      className={`${karla.variable} ${bungee.variable} ${roboMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
         <Script
