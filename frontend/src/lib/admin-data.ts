@@ -3,9 +3,16 @@ import "server-only";
 import { cache } from "react";
 
 import { isOrderStatus } from "./admin-rules";
-import { apiFetch } from "./api";
+import { ApiError, apiFetch } from "./api";
 import { getAuthCookieHeader, getCurrentUser } from "./session";
-import type { AdminOrder, Category, OrderStatus, Product, User } from "./types";
+import type {
+  AdminOrder,
+  Category,
+  OrderStatus,
+  Pagination,
+  Product,
+  User,
+} from "./types";
 
 type AdminAccess =
   | { kind: "ok"; cookie: string; user: User }
@@ -20,6 +27,11 @@ export type AdminReadResult<T> =
 export interface AdminOverviewData {
   orders: AdminOrder[];
   products: Product[];
+}
+
+export interface AdminProductList {
+  products: Product[];
+  pagination?: Pagination;
 }
 
 // Stop at a sane ceiling so a runaway catalog cannot stall the overview.
@@ -93,5 +105,37 @@ export const getAdminCategories = cache(
 
     const { data } = await apiFetch<Category[]>("/categories");
     return { kind: "ok", data };
+  },
+);
+
+export const getAdminProducts = cache(
+  async (query: string): Promise<AdminReadResult<AdminProductList>> => {
+    const access = await getAdminAccess();
+    if (access.kind !== "ok") return access;
+
+    const { data, pagination } = await apiFetch<Product[]>(
+      `/products?${query}`,
+      { cookie: access.cookie },
+    );
+    return { kind: "ok", data: { products: data, pagination } };
+  },
+);
+
+export const getAdminProduct = cache(
+  async (id: string): Promise<AdminReadResult<Product | null>> => {
+    const access = await getAdminAccess();
+    if (access.kind !== "ok") return access;
+
+    try {
+      const { data } = await apiFetch<Product>(`/products/${id}`, {
+        cookie: access.cookie,
+      });
+      return { kind: "ok", data: data ?? null };
+    } catch (error) {
+      if (error instanceof ApiError && error.status === 404) {
+        return { kind: "ok", data: null };
+      }
+      throw error;
+    }
   },
 );
