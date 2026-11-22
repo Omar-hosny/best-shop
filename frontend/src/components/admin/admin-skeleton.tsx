@@ -26,6 +26,29 @@ export function AdminOverviewSkeleton() {
   );
 }
 
+export function AdminCategoriesSkeleton() {
+  return (
+    <div role="status" aria-busy="true" className="space-y-5">
+      <span className="sr-only">Reading the live category list</span>
+      <div className="grid gap-4 lg:grid-cols-[minmax(0,22rem)_1fr]">
+        <div className="rounded-4xl bg-card p-5 sm:p-6">
+          <div className="h-7 w-40 animate-pulse bg-surface" />
+          <div className="mt-6 h-12 animate-pulse bg-surface" />
+          <div className="mt-4 h-12 animate-pulse bg-surface" />
+        </div>
+        <div className="rounded-4xl bg-card p-5 sm:p-6">
+          <div className="h-7 w-36 animate-pulse bg-surface" />
+          <div className="mt-6 space-y-4">
+            {[0, 1, 2, 3, 4].map((index) => (
+              <div key={index} className="h-12 animate-pulse bg-surface" />
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function AdminOrdersSkeleton() {
   return (
     <div role="status" aria-busy="true" className="space-y-5">

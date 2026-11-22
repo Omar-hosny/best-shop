@@ -5,7 +5,7 @@ import { cache } from "react";
 import { isOrderStatus } from "./admin-rules";
 import { apiFetch } from "./api";
 import { getAuthCookieHeader, getCurrentUser } from "./session";
-import type { AdminOrder, OrderStatus, Product, User } from "./types";
+import type { AdminOrder, Category, OrderStatus, Product, User } from "./types";
 
 type AdminAccess =
   | { kind: "ok"; cookie: string; user: User }
@@ -83,5 +83,15 @@ export const getAdminOrders = cache(
 
     const status = isOrderStatus(rawStatus) ? rawStatus : undefined;
     return { kind: "ok", data: await readAdminOrders(access.cookie, status) };
+  },
+);
+
+export const getAdminCategories = cache(
+  async (): Promise<AdminReadResult<Category[]>> => {
+    const access = await getAdminAccess();
+    if (access.kind !== "ok") return access;
+
+    const { data } = await apiFetch<Category[]>("/categories");
+    return { kind: "ok", data };
   },
 );
