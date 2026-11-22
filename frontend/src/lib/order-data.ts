@@ -37,3 +37,25 @@ export const getOrder = cache(async (id: string): Promise<OrderReadResult> => {
     throw error;
   }
 });
+
+export type OrdersReadResult =
+  | { kind: "ok"; orders: Order[] }
+  | { kind: "unauthorized" };
+
+// Same request-time rules as getOrder. The API already scopes the list to the
+// forwarded session, so the page only has to distinguish a logged-out caller
+// from a normal (possibly empty) result.
+export const getOrders = cache(async (): Promise<OrdersReadResult> => {
+  const cookie = await getAuthCookieHeader();
+  if (!cookie) return { kind: "unauthorized" };
+
+  try {
+    const { data } = await apiFetch<Order[]>("/orders", { cookie });
+    return { kind: "ok", orders: data };
+  } catch (error) {
+    if (error instanceof ApiError && error.status === 401) {
+      return { kind: "unauthorized" };
+    }
+    throw error;
+  }
+});

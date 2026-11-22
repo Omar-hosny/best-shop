@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 import { Suspense } from "react";
 
@@ -77,6 +78,12 @@ async function AccountContent() {
 
         <div className="mt-8 flex flex-wrap gap-3">
           <LogoutForm />
+          <Link
+            href="/orders"
+            className="inline-flex min-h-12 items-center justify-center border-2 border-sign px-6 font-mono text-eyebrow font-bold uppercase tracking-label transition-colors hover:bg-sign hover:text-sign-foreground"
+          >
+            View your orders
+          </Link>
         </div>
       </section>
     </div>

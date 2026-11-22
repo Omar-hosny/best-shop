@@ -5,14 +5,17 @@ import { notFound, redirect } from "next/navigation";
 
 import { RetryButton } from "@/components/retry-button";
 import { formatMoney } from "@/lib/format";
+import {
+  formatOrderDate,
+  orderStatusLabel,
+  paymentStatusLabel,
+} from "@/lib/order-format";
 import { type OrderReadResult, getOrder } from "@/lib/order-data";
+
+import { CancelOrderForm } from "./cancel-order-form";
 
 const actionClass =
   "inline-flex min-h-12 items-center gap-3 bg-primary px-6 font-mono text-eyebrow font-bold uppercase tracking-label text-primary-foreground transition-colors hover:bg-primary/85";
-
-function labelize(value: string): string {
-  return value.charAt(0).toUpperCase() + value.slice(1);
-}
 
 export async function OrderDocket({
   params,
@@ -42,10 +45,17 @@ export async function OrderDocket({
       <div className="border-b-2 border-sign bg-card">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-x-6 gap-y-2 px-4 py-2 sm:px-6 lg:px-8">
           <Link
-            href="/#goods"
+            href="/orders"
             className="inline-flex min-h-11 items-center gap-2 font-mono text-eyebrow font-medium uppercase tracking-label text-muted-foreground transition-colors hover:text-brand"
           >
             <ArrowLeft className="size-4" aria-hidden="true" />
+            All orders
+          </Link>
+          <span aria-hidden="true" className="hidden h-4 w-px bg-border sm:block" />
+          <Link
+            href="/#goods"
+            className="inline-flex min-h-11 items-center gap-2 font-mono text-eyebrow font-medium uppercase tracking-label text-muted-foreground transition-colors hover:text-brand"
+          >
             Goods board
           </Link>
           <span aria-hidden="true" className="hidden h-4 w-px bg-border sm:block" />
@@ -87,7 +97,7 @@ export async function OrderDocket({
                 Order status
               </dt>
               <dd className="mt-1 font-mono text-sm font-bold uppercase tracking-label">
-                {labelize(order.status)}
+                {orderStatusLabel(order.status)}
               </dd>
             </div>
             <div>
@@ -95,10 +105,18 @@ export async function OrderDocket({
                 Payment
               </dt>
               <dd className="mt-1 font-mono text-sm font-bold uppercase tracking-label">
-                {labelize(order.paymentStatus)} · cash on delivery
+                {paymentStatusLabel(order.paymentStatus)} · cash on delivery
               </dd>
             </div>
           </dl>
+          {order.cancelReason ? (
+            <p className="mt-6 border-t border-bulb-foreground/30 pt-5 text-sm leading-7">
+              <span className="font-mono text-eyebrow font-bold uppercase tracking-label opacity-80">
+                Cancellation reason:{" "}
+              </span>
+              {order.cancelReason}
+            </p>
+          ) : null}
         </section>
 
         <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.75fr)] lg:items-start">
@@ -219,9 +237,11 @@ export async function OrderDocket({
                 </div>
               </dl>
               <p className="mt-4 font-mono text-eyebrow font-medium uppercase tracking-label text-muted-foreground">
-                Placed {order.createdAt?.slice(0, 10) ?? "recently"}
+                Placed {formatOrderDate(order.createdAt)}
               </p>
             </section>
+
+            <CancelOrderForm orderId={order._id} status={order.status} />
 
             <Link href="/#goods" className={actionClass}>
               <ArrowLeft className="size-4" aria-hidden="true" />
@@ -247,9 +267,9 @@ function ReadFailure() {
         </p>
         <div className="mt-7 flex flex-wrap gap-3">
           <RetryButton />
-          <Link href="/cart" className={actionClass}>
+          <Link href="/orders" className={actionClass}>
             <ArrowLeft className="size-4" aria-hidden="true" />
-            Back to cart
+            Back to orders
           </Link>
         </div>
       </div>
