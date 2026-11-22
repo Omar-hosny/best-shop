@@ -24,8 +24,9 @@ Web storefront with a Next.js frontend and Node/Express API. The homepage reads 
 
 ## Capabilities and Constraints
 
-- Home page is the storefront surface. The `/products` listing route remains intentionally unbuilt; `/products/:id` shows live item details, and `/cart` holds the signed-in shopper's live items with quantity, remove, and clear actions. Checkout stays an honest disabled placeholder until order creation is wired up.
-- The header shows a session-aware Account or Login link and a Cart link that works without pretending checkout exists.
+- Home page is the storefront surface. The `/products` listing route remains intentionally unbuilt; `/products/:id` shows live item details, and `/cart` holds the signed-in shopper's live items with quantity, remove, and clear actions.
+- `/checkout` takes a delivery address and places a cash-on-delivery order through the live API. The API snapshots prices, calculates delivery, decrements stock, and clears the cart in one transaction; the shopper lands on a refresh-safe `/orders/:id` confirmation.
+- The header shows a session-aware Account or Login link and a Cart link that leads into the working checkout.
 - Product and category content must come from the live API with designed loading and failure states.
 - Burnt orange `#C2410C` is the binding primary color for both themes; dark-surface text may need a lighter tint of the same hue for contrast.
 - No invented testimonials, customer counts, benchmarks, or commercial claims.

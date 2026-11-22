@@ -65,6 +65,54 @@ export interface Cart {
   updatedAt?: string;
 }
 
+export type OrderStatus =
+  | "pending"
+  | "confirmed"
+  | "shipped"
+  | "delivered"
+  | "cancelled";
+
+export interface ShippingAddress {
+  fullName: string;
+  phone: string;
+  street: string;
+  city: string;
+  postalCode?: string;
+  country: string;
+}
+
+export interface OrderItem {
+  product: string;
+  name: string;
+  image?: string | null;
+  price: number;
+  quantity: number;
+}
+
+export interface Order {
+  _id: string;
+  orderNumber: string;
+  user: string;
+  items: OrderItem[];
+  shippingAddress: ShippingAddress;
+  paymentMethod: "cod";
+  paymentStatus: "pending" | "paid" | "failed" | "refunded";
+  status: OrderStatus;
+  subtotal: number;
+  shippingFee: number;
+  total: number;
+  currency: string;
+  note?: string;
+  paidAt?: string;
+  confirmedAt?: string;
+  shippedAt?: string;
+  deliveredAt?: string;
+  cancelledAt?: string;
+  cancelReason?: string;
+  createdAt?: string;
+  updatedAt?: string;
+}
+
 export interface Pagination {
   page: number;
   limit: number;
