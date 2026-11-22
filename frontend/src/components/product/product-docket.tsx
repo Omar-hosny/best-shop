@@ -118,7 +118,11 @@ export async function ProductDocket({
             </dl>
 
             <div className="mt-8">
-              <QuantityField max={product.quantity} name={product.name} />
+              <QuantityField
+                productId={product._id}
+                max={product.quantity}
+                name={product.name}
+              />
             </div>
 
             <div className="mt-8 rounded-4xl bg-sign p-5 text-sign-foreground">
