@@ -1,3 +1,6 @@
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
+
 import { formatMoney } from "@/lib/format";
 import type { Cart } from "@/lib/types";
 
@@ -28,17 +31,17 @@ export function CartSummary({ cart }: { cart: Cart }) {
       </dl>
 
       <p className="mt-4 text-sm leading-7 text-muted-foreground">
-        A $7.99 standard delivery fee is added when the order is placed. Payment
+        A standard delivery fee is calculated when the order is placed. Payment
         is collected at the door — no card is needed.
       </p>
 
-      <button
-        type="button"
-        disabled
-        className="mt-6 inline-flex min-h-12 w-full items-center justify-center bg-primary px-6 font-mono text-eyebrow font-bold uppercase tracking-label text-primary-foreground disabled:cursor-not-allowed disabled:opacity-60"
+      <Link
+        href="/checkout"
+        className="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-3 bg-primary px-6 font-mono text-eyebrow font-bold uppercase tracking-label text-primary-foreground transition-colors hover:bg-primary/85"
       >
-        Checkout opens soon
-      </button>
+        Continue to checkout
+        <ArrowRight className="size-4" aria-hidden="true" />
+      </Link>
 
       <div className="mt-4 border-t-2 border-sign pt-4">
         <CartClearButton />
