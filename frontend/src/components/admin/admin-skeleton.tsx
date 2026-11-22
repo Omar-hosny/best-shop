@@ -49,6 +49,44 @@ export function AdminCategoriesSkeleton() {
   );
 }
 
+export function AdminProductsSkeleton() {
+  return (
+    <div role="status" aria-busy="true" className="space-y-5">
+      <span className="sr-only">Reading the live product catalog</span>
+      <div className="rounded-4xl bg-card p-5 sm:p-6">
+        <div className="grid gap-3 sm:grid-cols-3">
+          <div className="h-12 animate-pulse bg-surface" />
+          <div className="h-12 animate-pulse bg-surface" />
+          <div className="h-12 animate-pulse bg-surface" />
+        </div>
+      </div>
+      <div className="rounded-4xl bg-card p-5 sm:p-6">
+        <div className="h-7 w-48 animate-pulse bg-surface" />
+        <div className="mt-6 space-y-3">
+          {[0, 1, 2, 3, 4, 5].map((index) => (
+            <div key={index} className="h-14 animate-pulse bg-surface" />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function AdminProductFormSkeleton() {
+  return (
+    <div role="status" aria-busy="true" className="rounded-4xl bg-card p-5 sm:p-6">
+      <span className="sr-only">Reading the product form</span>
+      <div className="h-7 w-52 animate-pulse bg-surface" />
+      <div className="mt-7 grid gap-4 sm:grid-cols-2">
+        {[0, 1, 2, 3, 4, 5].map((index) => (
+          <div key={index} className="h-24 animate-pulse bg-surface" />
+        ))}
+      </div>
+      <div className="mt-6 h-12 w-40 animate-pulse bg-surface" />
+    </div>
+  );
+}
+
 export function AdminOrdersSkeleton() {
   return (
     <div role="status" aria-busy="true" className="space-y-5">

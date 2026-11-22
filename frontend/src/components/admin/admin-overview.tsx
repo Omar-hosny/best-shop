@@ -166,6 +166,10 @@ export async function AdminOverview() {
           All orders
           <ArrowRight className="size-4" aria-hidden="true" />
         </Link>
+        <Link href="/admin/products" className={outlineLinkClass}>
+          Manage products
+          <ArrowRight className="size-4" aria-hidden="true" />
+        </Link>
         <Link href="/admin/categories" className={outlineLinkClass}>
           Manage categories
           <ArrowRight className="size-4" aria-hidden="true" />
