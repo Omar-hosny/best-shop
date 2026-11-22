@@ -84,6 +84,14 @@ async function AccountContent() {
           >
             View your orders
           </Link>
+          {user.role === "admin" ? (
+            <Link
+              href="/admin"
+              className="inline-flex min-h-12 items-center justify-center border-2 border-sign px-6 font-mono text-eyebrow font-bold uppercase tracking-label transition-colors hover:bg-sign hover:text-sign-foreground"
+            >
+              Admin dashboard
+            </Link>
+          ) : null}
         </div>
       </section>
     </div>

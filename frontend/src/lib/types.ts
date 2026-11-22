@@ -89,6 +89,19 @@ export interface OrderItem {
   quantity: number;
 }
 
+export interface AdminOrderUser {
+  _id: string;
+  name: string;
+  email: string;
+}
+
+// GET /orders/admin populates `user`; customer-scoped order routes return the
+// bare id. Keep both shapes explicit so admin views never guess.
+export type AdminOrder = Omit<Order, "user"> & {
+  // `populate("user")` returns null when the account was deleted.
+  user: AdminOrderUser | string | null;
+};
+
 export interface Order {
   _id: string;
   orderNumber: string;
